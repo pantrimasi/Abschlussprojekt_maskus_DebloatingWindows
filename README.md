@@ -1,4 +1,3 @@
-# Abschlussprojekt_maskus_DebloatingWindows
 # Windows Debloating-Projekt
 
 *Systematische Analyse, Automatisierung und Profilverwaltung für eine optimierte Windows-VM-Umgebung*
