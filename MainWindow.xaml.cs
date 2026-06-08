@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WinOptimizer2026
+namespace Abschlussprojekt_WindowsDebloater
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
