@@ -92,7 +92,7 @@
 
 
             <!-- Checkboxes -->
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,33,0,-423" Grid.ColumnSpan="8">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,33,0,-407" Grid.ColumnSpan="8">
                 <StackPanel>
 
                     <!-- Standard Stuff -->

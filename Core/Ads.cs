@@ -13,25 +13,25 @@
             });
         }
 
-        // Werbe-ID
+        // Ad-ID
         public static void DisableAdvertisingId() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo\" /v Enabled /t REG_DWORD /d 0 /f");
 
-        // Startmenü
+        // Start menu
         public static void DisableStartMenuSuggestions() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SystemPaneSuggestionsEnabled /t REG_DWORD /d 0 /f");
 
-        // Sperrbildschirm
+        // Lockscreen
         public static void DisableLockScreenAds() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-338387Enabled /t REG_DWORD /d 0 /f");
 
-        // App-Vorschläge
+        // App suggestions
         public static void DisableAppSuggestions() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-338388Enabled /t REG_DWORD /d 0 /f");
 
-        // Bing-Suche
+        // Bing search
         public static void DisableBingSearch() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings\" /v IsDynamicSearchBoxEnabled /t REG_DWORD /d 0 /f");
 
         // Explorer
         public static void DisableExplorerAds() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v ShowSyncProviderNotifications /t REG_DWORD /d 0 /f");
 
-        // Einstellungen
+        // Settings
         public static void DisableSettingsAds1() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-338393Enabled /t REG_DWORD /d 0 /f");
         public static void DisableSettingsAds2() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-353634Enabled /t REG_DWORD /d 0 /f");
         public static void DisableSettingsAds3() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-353636Enabled /t REG_DWORD /d 0 /f");
@@ -39,10 +39,10 @@
         // Tipps
         public static void DisableTips() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Privacy\" /v TailoredExperiencesWithDiagnosticDataEnabled /t REG_DWORD /d 0 /f");
 
-        // Einrichtung
+        // Setup-Ads
         public static void DisableSetupAds() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\UserProfileEngagement\" /v ScoobeSystemSettingEnabled /t REG_DWORD /d 0 /f");
 
-        // Willkommensseite
+        // Welcomepage
         public static void DisableWelcomePage() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-310093Enabled /t REG_DWORD /d 0 /f");
 
         // Popups
@@ -51,7 +51,7 @@
         // Widgets
         public static void DisableWidgetAds() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds\\DSB\" /v InformationContent /t REG_DWORD /d 0 /f");
 
-        // Explorer Neustart
+        // Explorer restart
         public static void RestartExplorer()
         {
             System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo

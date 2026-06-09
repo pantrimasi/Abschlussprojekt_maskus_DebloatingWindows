@@ -9,7 +9,7 @@ namespace WindowsDebloater.Core
         public static bool IsAdmin() =>
             new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
 
-        // restart elevated
+        // restart
         public static void RestartAsAdmin()
         {
             System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
