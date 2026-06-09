@@ -7,8 +7,8 @@
         xmlns:local="clr-namespace:WindowsDebloater"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        WindowStyle="None"
-        ResizeMode="NoResize"
+        WindowStyle= "ThreeDBorderWindow"
+        ResizeMode="CanResizeWithGrip"
         Background="#121212">
 
     <Grid>
