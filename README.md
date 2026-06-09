@@ -1,75 +1,154 @@
-# Windows Debloating-Projekt
+# WindowsDebloater
 
-*Systematische Analyse, Automatisierung und Profilverwaltung für eine optimierte Windows-VM-Umgebung*
+*WindowsDebloater ist eine Desktop-Anwendung für Windows, die unnötige Funktionen, Werbung, Telemetrie und Hintergrunddienste mit wenigen Klicks deaktiviert. Das Ziel des Projekts ist es, ein Windows-System übersichtlicher, datenschutzfreundlicher und ressourcenschonender zu gestalten.*
 
-## Überblick
+## Übersicht
 
-In diesem Projekt wird eine Windows-Umgebung innerhalb einer virtuellen Maschine als Grundlage für eine strukturierte Systemoptimierung genutzt. Ziel ist es, das System nicht einfach zu „entschlacken“, sondern nachvollziehbar zu analysieren, gezielt anzupassen und reproduzierbar zu konfigurieren.
+WindowsDebloater wurde mit C# und WPF unter .NET 10.0 entwickelt. Die Anwendung bietet eine grafische Oberfläche, über die verschiedene Optimierungen ausgewählt und angewendet werden können.
 
-Zu Beginn wird der Ist-Zustand des Systems untersucht. Dazu gehören installierte Programme, aktive Dienste, Autostart-Einträge sowie Hintergrundprozesse. Diese Analyse schafft eine klare Ausgangsbasis für alle weiteren Anpassungen.
+Der Fokus liegt auf:
 
-Auf dieser Grundlage werden verschiedene Systemprofile definiert:
-- Arbeitsprofil
-- Gaming-Profil
-- Minimalprofil
+- Deaktivieren von Windows-Werbung
+- Verbessern des Datenschutzes
+- Abschalten unnötiger Hintergrunddienste
+- Entfernen von visuellen Effekten
+- Reduzieren von Autostart-Einträgen
 
-Jedes Profil hat eigene Anforderungen an Leistung, Stabilität und Hintergrundaktivitäten. Die Anpassung erfolgt automatisiert über PowerShell-Skripte.
+Alle Optimierungen können direkt über die Benutzeroberfläche ausgewählt werden.
 
-Zur Bedienung wird zusätzlich eine grafische Oberfläche auf Basis von PowerShell Windows Forms entwickelt. Diese ermöglicht das einfache Wechseln zwischen Profilen und zeigt über ein Log-System alle vorgenommenen Änderungen nachvollziehbar an.
+## Funktionen
 
-## Installation
+### Animationen
 
-1. Repository klonen:
-   git clone https://github.com/pantrimasi/Abschlussprojekt_maskus_DebloatingWindows
+Das Modul `Animationen.cs` deaktiviert verschiedene visuelle Effekte von Windows.
 
-2. Virtuelle Maschine mit Windows einrichten (empfohlen als Testumgebung)
+Beispiele:
 
-3. PowerShell Skripte mit Administratorrechten ausführen
+- Fensteranimationen
+- Transparenzeffekte
+- Aero Peek
+- Touch-Feedback
+- Menüverzögerungen
 
-4. Optional: Windows Forms GUI starten zur Profilsteuerung
+Nach dem Anwenden wird der Windows Explorer automatisch neu gestartet.
 
-## Verwendung
+### Werbung
 
-Nach dem Setup können über die bereitgestellten Skripte oder die GUI verschiedene Systemprofile aktiviert werden. Jede Aktivierung passt Dienste, Autostart und Systemkomponenten automatisch an das gewählte Szenario an.
+Das Modul `Ads.cs` deaktiviert verschiedene Werbe- und Vorschlagsfunktionen von Windows.
 
-Das Log-System dokumentiert alle Änderungen, damit der Zustand des Systems jederzeit nachvollziehbar bleibt.
+Beispiele:
 
-## Mitwirken
+- Startmenü-Vorschläge
+- Sperrbildschirm-Werbung
+- App-Empfehlungen
+- Widget-Werbung
+- Bing-Integration
 
-Beiträge sind möglich durch:
-- Verbesserung bestehender Skripte
-- Erweiterung der Profile
-- Optimierung der GUI
-- Dokumentation von Systemänderungen
+### Datenschutz
 
-Pull Requests sind willkommen.
+Das Modul `DataProtection.cs` deaktiviert verschiedene Datenschutzfunktionen.
 
-## Lizenz & Credits
+Beispiele:
 
-Projekt erstellt von PantriMasi im Rahmen eines Abschlussprojekts in der Fachrichtung Plattformentwicklung.
+- Telemetrie
+- Aktivitätsverlauf
+- Standortdienste
+- Suchverlauf
+- Fehlerberichterstattung
+- Kamera- und Mikrofonzugriffe
+- Cloud-Zwischenablage
 
-## Optionale Links
+### Dienste
 
-- GitHub Repository: https://github.com/pantrimasi/Abschlussprojekt_maskus_DebloatingWindows
+Das Modul `Services.cs` deaktiviert verschiedene Windows-Dienste, die auf vielen Systemen nicht benötigt werden.
 
-## Vorteile und Nachteile
+Unter anderem:
 
-**Vorteile**
-- Reproduzierbare Systemkonfiguration durch Automatisierung
-- Klare Trennung von Nutzungsszenarien über Profile
-- Verbesserte Übersicht durch Logging und GUI
-- Reduzierter manueller Aufwand bei Systemanpassungen
+- Xbox-Dienste
+- Datenerfassungsdienste
+- Netzwerkdienste
+- Veraltete Protokolle
+- Virtualisierungsdienste
 
-**Nachteile**
-- Erhöhter Initialaufwand bei Skripterstellung
-- Potenzielle Kompatibilitätsprobleme bei Windows Updates
-- Risiko von Fehlkonfigurationen bei tiefen Systemeingriffen
-- Abhängigkeit von PowerShell und administrativen Rechten
+### Autostart
 
-## Source Directory
+Das Modul `AutomaticStartupApps.cs` verwaltet die Autostart-Einträge.
 
-- VM Setup: Virtuelle Windows-Testumgebung
-- Scripts: PowerShell Automatisierung für Debloating und Profilwechsel
-- Profiles: Definition von Arbeits-, Gaming- und Minimal-Konfigurationen
-- GUI: PowerShell Windows Forms Oberfläche zur Steuerung
-- Logging: Protokollierung aller Systemänderungen
+Aktuell bleibt nur:
+
+- SecurityHealthSystray
+
+Alle anderen Einträge werden deaktiviert.
+
+### Administratorrechte
+
+Das Modul `AskAdminPermissions.cs` überprüft beim Start, ob die Anwendung mit Administratorrechten ausgeführt wird.
+
+Falls dies nicht der Fall ist, startet sich die Anwendung automatisch mit einer UAC-Abfrage neu.
+
+## Projektstruktur
+
+```text
+WindowsDebloater/
+├── App.xaml
+├── App.xaml.cs
+├── GUI/
+│   ├── MainWindow.xaml
+│   └── MainWindow.xaml.cs
+└── Core/
+    ├── Animationen.cs
+    ├── Ads.cs
+    ├── DataProtection.cs
+    ├── Services.cs
+    ├── AutomaticStartupApps.cs
+    └── AdminHelper.cs
+````
+
+## Oberfläche
+
+Die Benutzeroberfläche basiert auf WPF und ist in verschiedene Kategorien aufgeteilt:
+
+* Animationen
+* Datenschutz
+* Werbung
+* Dienste
+* Autostart-Apps
+
+Alle Optionen werden über Checkboxen gesteuert.
+
+Mit dem Button **Anwenden** werden die ausgewählten Optimierungen ausgeführt.
+
+## Technische Umsetzung
+
+WindowsDebloater verwendet hauptsächlich:
+
+* C#
+* WPF
+* .NET 10.0
+* Registry-Anpassungen
+* PowerShell-Befehle
+
+Registry-Änderungen werden über `reg add` ausgeführt.
+
+Windows-Dienste werden über PowerShell mit `Stop-Service` und `Set-Service` deaktiviert.
+
+## Geplante Erweiterungen
+
+Folgende Funktionen sind für zukünftige Versionen geplant:
+
+* Profile (Gaming, Work, Privacy, Developer)
+* Eigene Profile speichern und laden
+* JSON-Import und Export
+* Benchmark-Bereich
+* Systemanalyse
+* Statusübersicht aller Optimierungen
+* Verbesserte Benutzeroberfläche
+* Weitere Optimierungsmodule
+
+## Mitwirkende
+
+**Autor:** PantriMasi
+
+## Lizenz
+
+Dieses Projekt wurde als Ausbildungs- und Lernprojekt entwickelt.
