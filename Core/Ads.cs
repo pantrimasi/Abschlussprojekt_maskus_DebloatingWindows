@@ -1,0 +1,66 @@
+﻿namespace WindowsDebloater.Core
+{
+    public static class Ads
+    {
+        private static void RunRegistryCommand(string arguments)
+        {
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = "cmd.exe",
+                Arguments = $"/c {arguments}",
+                UseShellExecute = false,
+                CreateNoWindow = true
+            });
+        }
+
+        // Werbe-ID
+        public static void DisableAdvertisingId() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo\" /v Enabled /t REG_DWORD /d 0 /f");
+
+        // Startmenü
+        public static void DisableStartMenuSuggestions() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SystemPaneSuggestionsEnabled /t REG_DWORD /d 0 /f");
+
+        // Sperrbildschirm
+        public static void DisableLockScreenAds() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-338387Enabled /t REG_DWORD /d 0 /f");
+
+        // App-Vorschläge
+        public static void DisableAppSuggestions() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-338388Enabled /t REG_DWORD /d 0 /f");
+
+        // Bing-Suche
+        public static void DisableBingSearch() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings\" /v IsDynamicSearchBoxEnabled /t REG_DWORD /d 0 /f");
+
+        // Explorer
+        public static void DisableExplorerAds() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v ShowSyncProviderNotifications /t REG_DWORD /d 0 /f");
+
+        // Einstellungen
+        public static void DisableSettingsAds1() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-338393Enabled /t REG_DWORD /d 0 /f");
+        public static void DisableSettingsAds2() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-353634Enabled /t REG_DWORD /d 0 /f");
+        public static void DisableSettingsAds3() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-353636Enabled /t REG_DWORD /d 0 /f");
+
+        // Tipps
+        public static void DisableTips() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Privacy\" /v TailoredExperiencesWithDiagnosticDataEnabled /t REG_DWORD /d 0 /f");
+
+        // Einrichtung
+        public static void DisableSetupAds() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\UserProfileEngagement\" /v ScoobeSystemSettingEnabled /t REG_DWORD /d 0 /f");
+
+        // Willkommensseite
+        public static void DisableWelcomePage() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-310093Enabled /t REG_DWORD /d 0 /f");
+
+        // Popups
+        public static void DisablePopups() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-338389Enabled /t REG_DWORD /d 0 /f");
+
+        // Widgets
+        public static void DisableWidgetAds() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds\\DSB\" /v InformationContent /t REG_DWORD /d 0 /f");
+
+        // Explorer Neustart
+        public static void RestartExplorer()
+        {
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = "powershell.exe",
+                Arguments = "-NoProfile -ExecutionPolicy Bypass -Command \"Stop-Process -Name explorer -Force\"",
+                UseShellExecute = false,
+                CreateNoWindow = true
+            });
+        }
+    }
+}
