@@ -12,25 +12,16 @@
         Background="#121212">
 
     <Grid>
-        <!-- Header -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="25">
-
-            </RowDefinition>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <!-- Navigation bar -->
+        <Grid Grid.Row="0" Background="#1E1E1E">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition>
-
-            </ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
-        <Grid Background="#1E1E1E" 
-              Grid.ColumnSpan="2">
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="150"/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -39,56 +30,49 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Logo"
-                           Foreground="#B0BEC5"
-                           Grid.Column="0"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           FontFamily="Fonts/#MontHeavy"
-                           FontWeight="Bold"
-                           />
-            <TextBlock Text="Optimierungen"
-                           Foreground="#B0BEC5"
-                           Grid.Column="1"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           FontFamily="Fonts/#MontLight"
-                           />
-            <TextBlock Text="Datenschutz"
-                           Foreground="#B0BEC5"
-                           Grid.Column="2"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           FontFamily="Fonts/#MontLight"
-                           />
-            <TextBlock Text="Apps"
-                           Foreground="#B0BEC5"
-                           Grid.Column="3"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           FontFamily="Fonts/#MontLight"
-                           />
-            <TextBlock Text="Windows Key"
-                           Foreground="#B0BEC5"
-                           Grid.Column="4"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           FontFamily="Fonts/#MontLight"
-                           />
-            <TextBlock Text="Profiles"
-                           Foreground="#B0BEC5"
-                           Grid.Column="5"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           FontFamily="Fonts/#MontLight"
-                           />
-            <TextBlock Text="Benchmark"
-                           Foreground="#B0BEC5"
-                           Grid.Column="6"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           FontFamily="Fonts/#MontLight"
-                           />
+            <TextBlock Text="Logo" Foreground="#BB86FC" Grid.Column="0"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       FontSize="22" FontWeight="Bold"/>
+            <TextBlock Text="Optimierungen" Foreground="#B0BEC5" Grid.Column="1"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Datenschutz" Foreground="#B0BEC5" Grid.Column="2"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Apps" Foreground="#B0BEC5" Grid.Column="3"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Windows Key" Foreground="#B0BEC5" Grid.Column="4"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Profiles" Foreground="#B0BEC5" Grid.Column="5"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Benchmark" Foreground="#B0BEC5" Grid.Column="6"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+
+
+        <!-- Utilization Bar -->
+        <Grid Grid.Row="1" Background="#1A1A1A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="TxtProcesses" Text="- Prozesse Aktiv" Foreground="#B0BEC5"
+               Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="TxtCpu" Text="- % CPU Verbrauch" Foreground="#B0BEC5"
+               Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="TxtRam" Text="- GB Ram Verbrauch" Foreground="#B0BEC5"
+               Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="TxtApps" Text="- Vorinstallierte Apps" Foreground="#B0BEC5"
+               Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <Border Grid.Column="4" Background="#2A2A2A" CornerRadius="6"
+            Margin="10,6,10,6" Cursor="Hand">
+                <TextBlock Text="empfohlene Settings auswählen" Foreground="#B0BEC5"
+                   VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="11"/>
+            </Border>
+        </Grid>
 
 
             <!-- Checkboxes -->
