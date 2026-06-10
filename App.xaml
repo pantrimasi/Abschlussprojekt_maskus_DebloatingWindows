@@ -4,6 +4,71 @@
              xmlns:local="clr-namespace:WindowsDebloater"
              StartupUri="GUI/MainWindow.xaml">
     <Application.Resources>
-         
+
+        <!-- Checkbox -->
+        <Style TargetType="CheckBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+
+                            <!-- rounded square -->
+                            <Border x:Name="Box" Width="11" Height="11" CornerRadius="3"
+                            BorderBrush="#9E9E9E" BorderThickness="1.5"
+                            Background="Transparent" Margin="20,0,10,0"/>
+
+                            <!-- label -->
+                            <ContentPresenter VerticalAlignment="Center"/>
+
+                        </StackPanel>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Box" Property="Background" Value="#BB86FC"/>
+                                <Setter TargetName="Box" Property="BorderBrush" Value="#BB86FC"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!-- Button -->
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="#9E9E9E"/>
+            <Setter Property="Background" Value="#1A1A1A"/>
+            <Setter Property="BorderBrush" Value="#9E9E9E"/>
+            <Setter Property="BorderThickness" Value="1.5"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#BB86FC"/>
+                                <Setter Property="BorderBrush" Value="#BB86FC"/>
+                                <Setter Property="Foreground" Value="#121212"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#3700B3"/>
+                                <Setter Property="BorderBrush" Value="#3700B3"/>
+                                <Setter Property="Foreground" Value="#FFFFFF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

@@ -6,10 +6,11 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:WindowsDebloater"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" WindowState="Maximized"
         WindowStyle= "ThreeDBorderWindow"
         ResizeMode="CanResizeWithGrip"
         Background="#121212">
+
 
     <Grid>
         <Grid.RowDefinitions>
@@ -19,37 +20,41 @@
         </Grid.RowDefinitions>
 
         <!-- Navigation bar -->
-        <Grid Grid.Row="0" Background="#1E1E1E">
-        <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+        <Grid Grid.Row="0" Background="#1E1E1E" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70*"/>
+                <ColumnDefinition Width="133*"/>
+                <ColumnDefinition Width="120*"/>
+                <ColumnDefinition Width="58*"/>
+                <ColumnDefinition Width="126*"/>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="104*"/>
+                <ColumnDefinition Width="109*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Logo" Foreground="#BB86FC" Grid.Column="0"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"
-                       FontSize="22" FontWeight="Bold"/>
-            <TextBlock Text="Optimierungen" Foreground="#B0BEC5" Grid.Column="1"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Text="Datenschutz" Foreground="#B0BEC5" Grid.Column="2"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Text="Apps" Foreground="#B0BEC5" Grid.Column="3"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Text="Windows Key" Foreground="#B0BEC5" Grid.Column="4"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Text="Profiles" Foreground="#B0BEC5" Grid.Column="5"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Text="Benchmark" Foreground="#B0BEC5" Grid.Column="6"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="NavOptimization" Text="Optimierungen" Foreground="#BB86FC"
+           Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"
+           Cursor="Hand" MouseLeftButtonDown="NavOptimization_Click" FontSize="18" Height="24" Width="120"/>
+            <TextBlock x:Name="NavDataProtection" Text="Datenschutz" Foreground="#B0BEC5"
+           Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"
+           Cursor="Hand" MouseLeftButtonDown="NavDataProtection_Click" FontSize="18" Height="24" Width="98"/>
+            <TextBlock x:Name="NavApps" Text="Apps" Foreground="#B0BEC5"
+           Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center"
+           Cursor="Hand" MouseLeftButtonDown="NavApps_Click" FontSize="18" Height="24" Width="40"/>
+            <TextBlock x:Name="NavWindowsKey" Text="Windows Key" Foreground="#B0BEC5"
+           Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center"
+           Cursor="Hand" MouseLeftButtonDown="NavWindowsKey_Click" FontSize="18" Height="24" Width="106"/>
+            <TextBlock x:Name="NavProfiles" Text="Profiles" Foreground="#B0BEC5"
+           Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center"
+           Cursor="Hand" MouseLeftButtonDown="NavProfiles_Click" FontSize="18" Height="24" Width="58"/>
+            <TextBlock x:Name="NavBenchmark" Text="Benchmark" Foreground="#B0BEC5"
+           Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center"
+           Cursor="Hand" MouseLeftButtonDown="NavBenchmark_Click" FontSize="18" Height="24" Width="88"/>
         </Grid>
 
 
-        <!-- Utilization Bar -->
-        <Grid Grid.Row="1" Background="#1A1A1A">
+        <!-- Utilization bar -->
+        <Grid Background="#1A1A1A" Margin="0,40,0,10" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -57,121 +62,17 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
-
             <TextBlock x:Name="TxtProcesses" Text="- Prozesse Aktiv" Foreground="#B0BEC5"
                Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <TextBlock x:Name="TxtCpu" Text="- % CPU Verbrauch" Foreground="#B0BEC5"
                Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <TextBlock x:Name="TxtRam" Text="- GB Ram Verbrauch" Foreground="#B0BEC5"
                Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="TxtApps" Text="- Vorinstallierte Apps" Foreground="#B0BEC5"
+            <TextBlock x:Name="TxtApps" Text="- Installierte Apps" Foreground="#B0BEC5"
                Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
-            <Border Grid.Column="4" Background="#2A2A2A" CornerRadius="6"
-            Margin="10,6,10,6" Cursor="Hand">
-                <TextBlock Text="empfohlene Settings auswählen" Foreground="#B0BEC5"
-                   VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="11"/>
-            </Border>
         </Grid>
 
-
-            <!-- Checkboxes -->
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,33,0,-407" Grid.ColumnSpan="8">
-                <StackPanel>
-
-                    <!-- Standard Stuff -->
-                    <CheckBox x:Name="ChkMenuDelay" IsChecked="True" Content="Menü-Verzögerung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkTaskbarAnim" IsChecked="True" Content="Taskleisten-Animationen" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-
-                    <!-- Alles andere -->
-                    <CheckBox x:Name="ChkDynamicScrollbars" IsChecked="True" Content="Globaler Hauptschalter" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkVisualFX" IsChecked="True" Content="Leistungsmodus" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkUserPrefMask" IsChecked="True" Content="Globaler Performance-Filter" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkMinAnimate" IsChecked="True" Content="Fenster-Animationen" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkDragFullWindows" IsChecked="True" Content="Fenster-Inhalt" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkTransparency" IsChecked="True" Content="Transparenz" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkPreviewWindow" IsChecked="True" Content="Aero-Peek" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkSearchboxMode" IsChecked="True" Content="Startmenü-Animation" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkTouchPrediction" IsChecked="True" Content="Touch-Feedback" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkModeChangeAnim" IsChecked="True" Content="Bildschirm-Umschaltung" Margin="0,0,0,15" Foreground="#9E9E9E"/>
-
-                    <!-- Datenschutz -->
-                    <CheckBox x:Name="ChkTelemetry" IsChecked="True" Content="Telemetrie" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkActivityHistory" IsChecked="True" Content="Aktivitätsverlauf" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkLocation" IsChecked="True" Content="Standort" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkFeedback" IsChecked="True" Content="Feedback" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkSearchHistory" IsChecked="True" Content="Suchverlauf" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkDiagnosticData" IsChecked="True" Content="Diagnosedaten" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkErrorReporting" IsChecked="True" Content="Fehlerberichterstattung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkHandwritingData" IsChecked="True" Content="Handschriftdaten" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkAdvertisingId" IsChecked="True" Content="Werbe-ID" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkTailoredExperiences" IsChecked="True" Content="Personalisierte Werbung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkSpeechRecognition" IsChecked="True" Content="Spracherkennung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkCamera" IsChecked="True" Content="Kamera" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkMicrophone" IsChecked="True" Content="Mikrofon" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkContacts" IsChecked="True" Content="Kontakte" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkCloudClipboard" IsChecked="True" Content="Zwischenablage" Margin="0,0,0,15" Foreground="#9E9E9E"/>
-
-                    <!-- Werbung -->
-                    <CheckBox x:Name="ChkAdsAdvertisingId" IsChecked="True" Content="Werbe-ID" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkStartMenuSuggestions" IsChecked="True" Content="Startmenü-Vorschläge" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkLockScreenAds" IsChecked="True" Content="Sperrbildschirm-Werbung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkAppSuggestions" IsChecked="True" Content="App-Vorschläge" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkBingSearch" IsChecked="True" Content="Bing-Suche" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkExplorerAds" IsChecked="True" Content="Explorer-Werbung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkSettingsAds" IsChecked="True" Content="Einstellungs-Werbung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkTips" IsChecked="True" Content="Tipps" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkSetupAds" IsChecked="True" Content="Einrichtungs-Werbung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkWelcomePage" IsChecked="True" Content="Willkommensseite" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkPopups" IsChecked="True" Content="Popups" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkWidgetAds" IsChecked="True" Content="Widget-Werbung" Margin="0,0,0,15" Foreground="#9E9E9E"/>
-
-                    <!-- Dienste -->
-                    <CheckBox x:Name="ChkDiagTrack" IsChecked="True" Content="Telemetrie-Dienst" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkWerSvc" IsChecked="True" Content="Fehlerberichte-Dienst" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkLfsvc" IsChecked="True" Content="Standort-Dienst" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkPcaSvc" IsChecked="True" Content="Kompatibilitäts-Assistent" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkPimIndex" IsChecked="True" Content="Kundenerfahrung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkDps" IsChecked="True" Content="Diagnose-Richtlinie" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkRetailDemo" IsChecked="True" Content="Retail-Demo" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkMapsBroker" IsChecked="True" Content="Offline-Karten" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkWpcMonSvc" IsChecked="True" Content="Jugendschutz" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkSCardSvr" IsChecked="True" Content="Smartcard" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkFax" IsChecked="True" Content="Fax" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkWisvc" IsChecked="True" Content="Insider-Service" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkPhoneSvc" IsChecked="True" Content="Telefon-Dienst" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkSpooler" IsChecked="True" Content="Druckwarteschlange" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkWbioSrvc" IsChecked="True" Content="Biometrie" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkTermService" IsChecked="True" Content="Remotedesktop" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkWwanSvc" IsChecked="True" Content="Handynetz-Hotspot" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkXboxGipSvc" IsChecked="True" Content="Xbox-Zubehör" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkXblAuthManager" IsChecked="True" Content="Xbox-Anmeldung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkXblGameSave" IsChecked="True" Content="Xbox-Speicherstände" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkXboxNetApiSvc" IsChecked="True" Content="Xbox-Netzwerk" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkDosvc" IsChecked="True" Content="Lieferoptimierung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkRemoteRegistry" IsChecked="True" Content="Remoteregistrierung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkCscService" IsChecked="True" Content="Offlinedateien" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkIphlpsvc" IsChecked="True" Content="IP-Hilfsdienst" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkTabletInput" IsChecked="True" Content="Touch-Tastatur" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkSensorService" IsChecked="True" Content="Sensor-Dienst" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkSysMain" IsChecked="True" Content="SysMain" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkFhsvc" IsChecked="True" Content="Dateiverlauf" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkStiSvc" IsChecked="True" Content="Scanner-Dienst" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkLmhosts" IsChecked="True" Content="NetBIOS-Hilfsdienst" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkTrkWks" IsChecked="True" Content="Verteilte Verknüpfungen" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkCertPropSvc" IsChecked="True" Content="Zertifikat-Verbreitung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkHyperV" IsChecked="True" Content="Hyper-V" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkWcolorcp" IsChecked="True" Content="Röhrenmonitore" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkWebClient" IsChecked="True" Content="Webclient" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-                    <CheckBox x:Name="ChkP2p" IsChecked="True" Content="Peer-Netzwerk" Margin="0,0,0,15" Foreground="#9E9E9E"/>
-
-                    <!-- Autostart -->
-                    <CheckBox x:Name="ChkStartupApps" IsChecked="True" Content="Autostart-Apps" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-
-                    <!-- Anwenden Button -->
-                    <Button Content="Anwenden" Click="BtnAnwenden_Click" Width="100" Height="30" HorizontalAlignment="Right"/>
-                </StackPanel>
-            </ScrollViewer>
-        </Grid>
+        <!-- tab content -->
+        <ContentControl x:Name="TabContent" Grid.Row="2"/>
     </Grid>
 </Window>
