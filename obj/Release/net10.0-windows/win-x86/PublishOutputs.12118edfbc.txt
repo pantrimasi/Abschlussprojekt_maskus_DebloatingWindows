@@ -1,7 +1,0 @@
-C:\Users\masat\Desktop\WindowsDebloaterPublicBuilds\WindowsDebloater.pdb
-C:\Users\masat\Desktop\WindowsDebloaterPublicBuilds\D3DCompiler_47_cor3.dll
-C:\Users\masat\Desktop\WindowsDebloaterPublicBuilds\PenImc_cor3.dll
-C:\Users\masat\Desktop\WindowsDebloaterPublicBuilds\PresentationNative_cor3.dll
-C:\Users\masat\Desktop\WindowsDebloaterPublicBuilds\vcruntime140_cor3.dll
-C:\Users\masat\Desktop\WindowsDebloaterPublicBuilds\wpfgfx_cor3.dll
-C:\Users\masat\Desktop\WindowsDebloaterPublicBuilds\WindowsDebloater.exe

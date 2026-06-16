@@ -1,5 +1,0 @@
-C:\Users\masat\Desktop\WindowsDebloaterBuilds\WindowsDebloater.exe
-C:\Users\masat\Desktop\WindowsDebloaterBuilds\WindowsDebloater.dll
-C:\Users\masat\Desktop\WindowsDebloaterBuilds\WindowsDebloater.deps.json
-C:\Users\masat\Desktop\WindowsDebloaterBuilds\WindowsDebloater.runtimeconfig.json
-C:\Users\masat\Desktop\WindowsDebloaterBuilds\WindowsDebloater.pdb
