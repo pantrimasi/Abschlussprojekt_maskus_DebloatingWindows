@@ -126,5 +126,109 @@
         public static void RemoveWhiteboard() => RemoveAppx("Whiteboard");
         public static void RemoveRemoteDesktop() => RemoveAppx("MicrosoftRemoteDesktop");
         public static void Remove365Companions() => RemoveAppx("MicrosoftOffice");
+
+        // ------------------------------------------------------------------------- Groups
+        public static void RemoveAllAI()
+        {
+            RemoveCopilot();
+            RemoveCortana();
+            RemoveJournal();
+            RemoveDevHome();
+        }
+
+        public static void RemoveAllGaming()
+        {
+            RemoveXboxApp();
+            RemoveXboxGameBar();
+            RemoveXboxConsoleCompanion();
+            RemoveXboxTCUI();
+            RemoveXboxIdentityProvider();
+            RemoveXboxSpeechToText();
+            RemoveSolitaire();
+        }
+
+        public static void RemoveAllCommunication()
+        {
+            RemoveTeamsNew();
+            RemoveTeamsOld();
+            RemoveSkype();
+            RemoveMailCalendar();
+            RemovePeople();
+            RemoveMessaging();
+            RemovePhoneLink();
+        }
+
+        public static void RemoveAllOffice()
+        {
+            RemoveStickyNotes();
+            RemoveToDo();
+            RemoveOneNote();
+            RemoveOfficeHub();
+            RemovePowerBI();
+            RemovePowerAutomate();
+            RemoveSway();
+            RemovePCManager();
+        }
+
+        public static void RemoveAllBing()
+        {
+            RemoveBingNews();
+            RemoveBingWeather();
+            RemoveBingFinance();
+            RemoveBingSports();
+            RemoveBingFoodDrink();
+            RemoveBingHealthFitness();
+            RemoveBingTranslator();
+            RemoveBingTravel();
+            RemoveBingSearch();
+            RemoveMicrosoftNews();
+        }
+
+        public static void RemoveAll3D()
+        {
+            Remove3DViewer();
+            Remove3DBuilder();
+            RemovePaint3D();
+            RemoveMixedReality();
+            RemovePrint3D();
+        }
+
+        public static void RemoveAllEntertainment()
+        {
+            RemoveFilmsTV();
+            RemoveGrooveMusic();
+            RemoveClipchamp();
+        }
+
+        public static void RemoveAllSystem()
+        {
+            RemoveFeedbackHub();
+            RemoveGetHelp();
+            RemoveGetStarted();
+            RemoveQuickAssist();
+            RemoveFamilySafety();
+            RemoveNetworkSpeedTest();
+            RemoveOneConnect();
+            RemoveAlarmsClock();
+            RemoveSoundRecorder();
+        }
+
+        public static void RemoveAllWidgets()
+        {
+            RemoveWidgets();
+            RemoveWidgetsPlatform();
+            RemoveWebExperiencePack();
+            RemoveCrossDevice();
+        }
+
+        public static void RemoveAllSpecial()
+        {
+            RemoveEdge();
+            RemoveOneDrive();
+            RemoveOutlook();
+            RemoveWhiteboard();
+            RemoveRemoteDesktop();
+            Remove365Companions();
+        }
     }
 }

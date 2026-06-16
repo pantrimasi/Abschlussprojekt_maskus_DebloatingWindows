@@ -52,7 +52,7 @@ namespace WindowsDebloater.GUI.Tabs {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WindowsDebloater;component/gui/tabs/services.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WindowsDebloater;V1.0.0.0;component/gui/tabs/services.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\GUI\Tabs\Services.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

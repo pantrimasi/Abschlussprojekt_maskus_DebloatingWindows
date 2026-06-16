@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WindowsDebloater")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+224edb3d3b9e7debf3dea98a37597ccb820038ee")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6fefd7e056f4603947cf7f2138d05590340cee98")]
 [assembly: System.Reflection.AssemblyProductAttribute("WindowsDebloater")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WindowsDebloater")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

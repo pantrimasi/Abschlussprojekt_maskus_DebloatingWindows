@@ -30,11 +30,9 @@ C:\Material\001 ZLI\03_Github_Repos\Abschlussprojekt_maskus_DebloatingWindows\ob
 C:\Material\001 ZLI\03_Github_Repos\Abschlussprojekt_maskus_DebloatingWindows\obj\Release\net10.0-windows\GUI\Tabs\Benchmark.baml
 C:\Material\001 ZLI\03_Github_Repos\Abschlussprojekt_maskus_DebloatingWindows\obj\Release\net10.0-windows\GUI\Tabs\DataProtection.baml
 C:\Material\001 ZLI\03_Github_Repos\Abschlussprojekt_maskus_DebloatingWindows\obj\Release\net10.0-windows\GUI\Tabs\Profiles.baml
-C:\Material\001 ZLI\03_Github_Repos\Abschlussprojekt_maskus_DebloatingWindows\obj\Release\net10.0-windows\GUI\Tabs\Services.baml
 C:\Material\001 ZLI\03_Github_Repos\Abschlussprojekt_maskus_DebloatingWindows\obj\Release\net10.0-windows\GUI\Tabs\WindowsKey.baml
 C:\Material\001 ZLI\03_Github_Repos\Abschlussprojekt_maskus_DebloatingWindows\obj\Release\net10.0-windows\GUI\Tabs\Benchmark.g.cs
 C:\Material\001 ZLI\03_Github_Repos\Abschlussprojekt_maskus_DebloatingWindows\obj\Release\net10.0-windows\GUI\Tabs\DataProtection.g.cs
 C:\Material\001 ZLI\03_Github_Repos\Abschlussprojekt_maskus_DebloatingWindows\obj\Release\net10.0-windows\GUI\Tabs\Profiles.g.cs
-C:\Material\001 ZLI\03_Github_Repos\Abschlussprojekt_maskus_DebloatingWindows\obj\Release\net10.0-windows\GUI\Tabs\Services.g.cs
 C:\Material\001 ZLI\03_Github_Repos\Abschlussprojekt_maskus_DebloatingWindows\obj\Release\net10.0-windows\GUI\Tabs\WindowsKey.g.cs
 C:\Material\001 ZLI\03_Github_Repos\Abschlussprojekt_maskus_DebloatingWindows\obj\Release\net10.0-windows\App.baml

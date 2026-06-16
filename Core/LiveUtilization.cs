@@ -11,21 +11,29 @@ namespace WindowsDebloater.Core
         private static readonly PerformanceCounter cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
 
         // ram used/total
+        private static readonly ManagementObjectSearcher ramQuery =
+            new ManagementObjectSearcher("SELECT FreePhysicalMemory, TotalVisibleMemorySize FROM Win32_OperatingSystem");
+
+        // cpu usage
+        public static string GetCpuUsage()
+        {
+            cpuCounter.NextValue();
+            System.Threading.Thread.Sleep(500);
+            return ((int)cpuCounter.NextValue()).ToString();
+        }
+
         public static string GetRamUsage()
         {
-            var query = new ManagementObjectSearcher("SELECT FreePhysicalMemory, TotalVisibleMemorySize FROM Win32_OperatingSystem");
-            foreach (var obj in query.Get())
+            foreach (var obj in ramQuery.Get())
             {
                 float total = float.Parse(obj["TotalVisibleMemorySize"].ToString()) / 1024f / 1024f;
                 float free = float.Parse(obj["FreePhysicalMemory"].ToString()) / 1024f / 1024f;
-                float used = total - free;
-                return $"{used:0.0}/{total:0.0} GB";
+                return $"{total - free:0.0}/{total:0.0} GB";
             }
             return "-";
         }
 
         // running processes
         public static Process[] GetProcesses() => Process.GetProcesses();
-
         }
     }

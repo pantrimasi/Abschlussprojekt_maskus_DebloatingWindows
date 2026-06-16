@@ -11,57 +11,65 @@
 	<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalContentAlignment="Stretch">
 		<StackPanel Margin="20">
 			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Data Protection -->
-			<!-- Data Protection Settings -->
-			<Border Background="#1A1A1A" CornerRadius="10" Margin="20" Padding="20">
-				<StackPanel>
-					<TextBlock Text="Data Protection Settings" Foreground="#BB86FC" FontSize="24" Margin="0,0,0,10"/>
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="*"/>
-						</Grid.ColumnDefinitions>
+            <!-- Data Protection Settings -->
+            <Border Background="#1A1A1A" CornerRadius="10" Margin="20" Padding="20">
+                <StackPanel>
+                    <TextBlock Text="Data Protection Settings" Foreground="#BB86FC" FontSize="24" Margin="0,0,0,10"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-						<!-- Default + Advanced -->
-						<StackPanel Grid.Column="0" Margin="0,0,10,0">
-							<!-- Data Protection Default -->
-							<Border Background="#242424" CornerRadius="8" Padding="15" Margin="0,0,0,10">
-								<StackPanel>
-									<TextBlock Text="Data Protection Default" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
-									<CheckBox x:Name="ChkTelemetry" Content="Telemetrie" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-									<CheckBox x:Name="ChkLocation" Content="Standort" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-									<CheckBox x:Name="ChkFeedback" Content="Feedback" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-									<CheckBox x:Name="ChkTailoredExperiences" Content="Personalisierte Werbung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-								</StackPanel>
-							</Border>
 
-							<!-- Data Protection Advanced -->
-							<Border Background="#242424" CornerRadius="8" Padding="15">
-								<StackPanel>
-									<TextBlock Text="Data Protection Default" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
-									<CheckBox x:Name="ChkAdvertisingId" Content="Werbe-ID" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-									<CheckBox x:Name="ChkContacts" Content="Kontakte" Margin="0,0,0,5" Foreground="#9E9E9E"/>								</StackPanel>
-							</Border>
-							
-							<!-- Data Protection 3 -->
-							<Border Background="#242424" CornerRadius="8" Margin="0,0,10,0" Padding="15" Grid.Column="1">
-								<StackPanel>
-									<TextBlock Text="Data Protection 3" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
-									<CheckBox x:Name="ChkSpeechRecognition" Content="Spracherkennung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-									<CheckBox x:Name="ChkCamera" Content="Kamera" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-									<CheckBox x:Name="ChkMicrophone" Content="Mikrofon" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-									<CheckBox x:Name="ChkActivityHistory" Content="Aktivitätsverlauf" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-									<CheckBox x:Name="ChkSearchHistory" Content="Suchverlauf" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-									<CheckBox x:Name="ChkDiagnosticData" Content="Diagnosedaten" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-									<CheckBox x:Name="ChkErrorReporting" Content="Fehlerberichterstattung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-									<CheckBox x:Name="ChkHandwritingData" Content="Handschriftdaten" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-									<CheckBox x:Name="ChkCloudClipboard" Content="Zwischenablage" Margin="0,0,0,15" Foreground="#9E9E9E"/>
-								</StackPanel>
-							</Border>
-						</StackPanel>
-					</Grid>
-				</StackPanel>
-			</Border>
+                        <!-- Default + Advanced -->
+                        <Grid Grid.Column="0" Margin="0,0,10,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
 
-			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Ads -->
+                            <!-- Data Protection Default -->
+                            <Border Background="#242424" CornerRadius="8" Padding="15" Margin="0,0,0,10" Grid.Row="0">
+                                <StackPanel>
+                                    <TextBlock Text="Data Protection Default" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                    <CheckBox x:Name="ChkTelemetry" Content="Telemetrie" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkLocation" Content="Standort" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkFeedback" Content="Feedback" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkTailoredExperiences" Content="Personalisierte Werbung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Data Protection Advanced -->
+                            <Border Background="#242424" CornerRadius="8" Padding="15" Grid.Row="1">
+                                <StackPanel>
+                                    <TextBlock Text="Data Protection Default" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                    <CheckBox x:Name="ChkAdvertisingId" Content="Werbe-ID" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkContacts" Content="Kontakte" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+
+                        <!-- Data Protection 3 -->
+                        <Border Background="#242424" CornerRadius="8" Margin="0,0,10,0" Padding="15" Grid.Column="1">
+                            <StackPanel>
+                                <TextBlock Text="Data Protection 3" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                <CheckBox x:Name="ChkSpeechRecognition" Content="Spracherkennung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkCamera" Content="Kamera" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkMicrophone" Content="Mikrofon" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkActivityHistory" Content="Aktivitätsverlauf" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkSearchHistory" Content="Suchverlauf" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkDiagnosticData" Content="Diagnosedaten" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkErrorReporting" Content="Fehlerberichterstattung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkHandwritingData" Content="Handschriftdaten" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkCloudClipboard" Content="Zwischenablage" Margin="0,0,0,15" Foreground="#9E9E9E"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Ads -->
 			<!-- Ads Settings -->
 			<Border Background="#1A1A1A" CornerRadius="10" Margin="20" Padding="20">
 				<StackPanel>

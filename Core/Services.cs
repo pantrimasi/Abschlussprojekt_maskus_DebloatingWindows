@@ -111,5 +111,76 @@
         // Peer-Network
         public static void DisableP2pSvc() => DisableService("p2psvc");
         public static void DisableP2pImSvc() => DisableService("p2pimsvc");
+
+        // ------------------------------------------------------------------------- Groups
+        public static void DisableAllTelemetry()
+        {
+            DisableDiagTrack();
+            DisableWerSvc();
+            DisableLfsvc();
+            DisablePcaSvc();
+            DisablePimIndexMaintenanceSvc();
+            DisableDps();
+        }
+
+        public static void DisableAllUnnecessary()
+        {
+            DisableRetailDemo();
+            DisableMapsBroker();
+            DisableWpcMonSvc();
+            DisableSCardSvr();
+            DisableFax();
+            DisableWisvc();
+            DisablePhoneSvc();
+        }
+
+        public static void DisableAllOftenUnused()
+        {
+            DisableSpooler();
+            DisableWbioSrvc();
+            DisableTermService();
+            DisableWwanSvc();
+        }
+
+        public static void DisableAllGaming()
+        {
+            DisableXboxGipSvc();
+            DisableXblAuthManager();
+            DisableXblGameSave();
+            DisableXboxNetApiSvc();
+        }
+
+        public static void DisableAllNetwork()
+        {
+            DisableDosvc();
+            DisableRemoteRegistry();
+            DisableCscService();
+            DisableIphlpsvc();
+        }
+
+        public static void DisableAllHardware()
+        {
+            DisableTabletInputService();
+            DisableSensorService();
+        }
+
+        public static void DisableAllSystem()
+        {
+            DisableSysMain();
+            DisableFhsvc();
+            DisableStiSvc();
+        }
+
+        public static void DisableAllOld()
+        {
+            DisableLmhosts();
+            DisableTrkWks();
+            DisableCertPropSvc();
+            DisableVmicguestinterface();
+            DisableWcolorcp();
+            DisableWebClient();
+            DisableP2pSvc();
+            DisableP2pImSvc();
+        }
     }
 }

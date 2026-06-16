@@ -51,6 +51,25 @@
         // Widgets
         public static void DisableWidgetAds() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds\\DSB\" /v InformationContent /t REG_DWORD /d 0 /f");
 
+        //Disable all
+        public static void DisableAll()
+        {
+            DisableAdvertisingId();
+            DisableStartMenuSuggestions();
+            DisableLockScreenAds();
+            DisableAppSuggestions();
+            DisableBingSearch();
+            DisableExplorerAds();
+            DisableSettingsAds1();
+            DisableSettingsAds2();
+            DisableSettingsAds3();
+            DisableTips();
+            DisableSetupAds();
+            DisableWelcomePage();
+            DisablePopups();
+            DisableWidgetAds();
+        }
+
         // Explorer restart
         public static void RestartExplorer()
         {

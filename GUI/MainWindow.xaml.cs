@@ -1,8 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using WindowsDebloater.GUI.Tabs;
 
-namespace WindowsDebloater
+namespace WindowsDebloater.GUI
 {
     public partial class MainWindow : Window
     {
@@ -13,19 +14,62 @@ namespace WindowsDebloater
             if (!WindowsDebloater.Core.AskAdminPermissions.IsAdmin())
                 WindowsDebloater.Core.AskAdminPermissions.RestartAsAdmin();
 
-            // live Stats
-            System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
-            timer.Interval = System.TimeSpan.FromSeconds(3);
-            timer.Tick += (s, e) =>
+            // async initial load
+            Loaded += async (s, e) =>
             {
-                TxtRam.Text = $"{WindowsDebloater.Core.LiveUtilization.GetRamUsage()} Ram Verbrauch";
-                TxtProcesses.Text = $"{WindowsDebloater.Core.LiveUtilization.GetProcesses().Length} Prozesse Aktiv";
+                var ram = await System.Threading.Tasks.Task.Run(() => WindowsDebloater.Core.LiveUtilization.GetRamUsage());
+                var processes = await System.Threading.Tasks.Task.Run(() => WindowsDebloater.Core.LiveUtilization.GetProcesses().Length);
+                var cpu = await System.Threading.Tasks.Task.Run(() => WindowsDebloater.Core.LiveUtilization.GetCpuUsage());
+
+                TxtRam.Text = $"{ram} Ram Verbrauch";
+                TxtProcesses.Text = $"{processes} Prozesse Aktiv";
+                TxtCpu.Text = $"{cpu}% CPU Verbrauch";
+            };
+
+            // live stats
+            System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
+            timer.Interval = System.TimeSpan.FromSeconds(5);
+            timer.Tick += async (s, e) =>
+            {
+                var ram = await System.Threading.Tasks.Task.Run(() => WindowsDebloater.Core.LiveUtilization.GetRamUsage());
+                var processes = await System.Threading.Tasks.Task.Run(() => WindowsDebloater.Core.LiveUtilization.GetProcesses().Length);
+                var cpu = await System.Threading.Tasks.Task.Run(() => WindowsDebloater.Core.LiveUtilization.GetCpuUsage());
+
+                TxtRam.Text = $"{ram} Ram Verbrauch";
+                TxtProcesses.Text = $"{processes} Prozesse Aktiv";
+                TxtCpu.Text = $"{cpu}% CPU Verbrauch";
             };
             timer.Start();
 
             // default tab
-            TabContent.Content = new WindowsDebloater.GUI.Tabs.Optimization();
+            TabContent.Content = new Optimization();
         }
+
+
+        // window controls
+        private void DragWindow(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Minimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void Maximize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState == WindowState.Maximized
+                ? WindowState.Normal
+                : WindowState.Maximized;
+        }
+
 
         // nav tabs
         private void SetActiveNav(TextBlock active)
@@ -41,37 +85,37 @@ namespace WindowsDebloater
 
         private void NavOptimization_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            TabContent.Content = new WindowsDebloater.GUI.Tabs.Optimization();
+            TabContent.Content = new Optimization();
             SetActiveNav(NavOptimization);
         }
 
         private void NavDataProtection_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            TabContent.Content = new WindowsDebloater.GUI.Tabs.DataProtection();
+            TabContent.Content = new DataProtection();
             SetActiveNav(NavDataProtection);
         }
 
         private void NavApps_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            TabContent.Content = new WindowsDebloater.GUI.Tabs.Apps();
+            TabContent.Content = new Apps();
             SetActiveNav(NavApps);
         }
 
         private void NavWindowsKey_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            TabContent.Content = new WindowsDebloater.GUI.Tabs.WindowsKey();
+            TabContent.Content = new Tabs.WindowsKey();
             SetActiveNav(NavWindowsKey);
         }
 
         private void NavProfiles_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            TabContent.Content = new WindowsDebloater.GUI.Tabs.Profiles();
+            TabContent.Content = new Profiles();
             SetActiveNav(NavProfiles);
         }
 
         private void NavBenchmark_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            TabContent.Content = new WindowsDebloater.GUI.Tabs.Benchmark();
+            TabContent.Content = new Benchmark();
             SetActiveNav(NavBenchmark);
         }
 

@@ -1,11 +1,201 @@
 <UserControl x:Class="WindowsDebloater.GUI.Tabs.Apps"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="800" d:DesignHeight="455"
              Background="#121212">
-
-	<ScrollViewer VerticalScrollBarVisibility="Auto" Margin="10">
-		<StackPanel>
-
-		</StackPanel>
-	</ScrollViewer>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalContentAlignment="Stretch">
+        <StackPanel Margin="20">
+            <!-- Card 1: AI, Gaming, Communication -->
+            <Border Background="#1A1A1A" CornerRadius="10" Margin="20" Padding="20">
+                <StackPanel>
+                    <TextBlock Text="Services" Foreground="#BB86FC" FontSize="24" Margin="0,0,0,10"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <!-- AI Apps -->
+                        <Border Background="#242424" CornerRadius="8" Margin="0,0,10,0" Padding="15" Grid.Column="0">
+                            <StackPanel>
+                                <TextBlock Text="AI Apps" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                <CheckBox x:Name="ChkCopilot" Content="Copilot" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkCortana" Content="Cortana" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkJournal" Content="Microsoft Journal" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkDevHome" Content="Dev Home" Foreground="#9E9E9E"/>
+                            </StackPanel>
+                        </Border>
+                        <!-- Gaming Apps -->
+                        <Border Background="#242424" CornerRadius="8" Margin="0,0,10,0" Padding="15" Grid.Column="1">
+                            <StackPanel>
+                                <TextBlock Text="Gaming Apps" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                <CheckBox x:Name="ChkXboxApp" Content="Xbox App" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkXboxGameBar" Content="Xbox Game Bar" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkXboxConsoleCompanion" Content="Xbox Console Companion" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkXboxTCUI" Content="Xbox TCUI" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkXboxIdentityProvider" Content="Xbox Identity Provider" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkXboxSpeechToText" Content="Xbox Speech To Text" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkSolitaire" Content="Solitaire Collection" Foreground="#9E9E9E"/>
+                            </StackPanel>
+                        </Border>
+                        <!-- Communication Apps -->
+                        <Border Background="#242424" CornerRadius="8" Margin="0" Padding="15" Grid.Column="2">
+                            <StackPanel>
+                                <TextBlock Text="Communication Apps" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                <CheckBox x:Name="ChkTeamsNew" Content="Teams New" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkTeamsOld" Content="Teams Old" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkSkype" Content="Skype" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkMailCalendar" Content="Mail &amp; Calendar" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkPeople" Content="People" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkMessaging" Content="Messaging" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkPhoneLink" Content="Phone Link" Foreground="#9E9E9E"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </Border>
+            <!-- Card 2: Office + Bing Services -->
+            <Border Background="#1A1A1A" CornerRadius="10" Margin="20" Padding="20">
+                <StackPanel>
+                    <TextBlock Text="Services" Foreground="#BB86FC" FontSize="24" Margin="0,0,0,10"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <!-- Office Apps -->
+                        <Border Background="#242424" CornerRadius="8" Margin="0,0,10,0" Padding="15" Grid.Column="0">
+                            <StackPanel>
+                                <TextBlock Text="Office Apps" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                <CheckBox x:Name="ChkStickyNotes" Content="Sticky Notes" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkToDo" Content="To Do" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkOneNote" Content="OneNote" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkOfficeHub" Content="Office Hub" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkPowerBI" Content="Power BI" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkPowerAutomate" Content="Power Automate" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkSway" Content="Sway" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkPCManager" Content="PC Manager" Foreground="#9E9E9E"/>
+                            </StackPanel>
+                        </Border>
+                        <!-- Widgets + Special -->
+                        <Grid Grid.Column="1" Margin="0,0,10,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <!-- Widgets -->
+                            <Border Background="#242424" CornerRadius="8" Padding="15" Margin="0,0,0,10" Grid.Row="0">
+                                <StackPanel>
+                                    <TextBlock Text="Widgets" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                    <CheckBox x:Name="ChkWidgets" Content="Widgets" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkWidgetsPlatform" Content="Widgets Platform" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkWebExperiencePack" Content="Web Experience Pack" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkCrossDevice" Content="Cross Device" Foreground="#9E9E9E"/>
+                                </StackPanel>
+                            </Border>
+                            <!-- Special Stuff -->
+                            <Border Background="#242424" CornerRadius="8" Padding="15" Grid.Row="1">
+                                <StackPanel>
+                                    <TextBlock Text="Special" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                    <CheckBox x:Name="ChkEdge" Content="Microsoft Edge" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkOneDrive" Content="OneDrive" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkOutlook" Content="Outlook for Windows" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkWhiteboard" Content="Whiteboard" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkRemoteDesktop" Content="Remote Desktop" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="Chk365Companions" Content="365 Companions" Foreground="#9E9E9E"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                        <!-- Bing Services -->
+                        <Grid Grid.Column="2" Margin="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <!-- Bing Stuff -->
+                            <Border Background="#242424" CornerRadius="8" Padding="15" Margin="0,0,0,10" Grid.Row="0">
+                                <StackPanel>
+                                    <TextBlock Text="Bing Services" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                    <CheckBox x:Name="ChkBingNews" Content="Bing News" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkBingWeather" Content="Bing Weather" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkBingFinance" Content="Bing Finance" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkBingSports" Content="Bing Sports" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkBingFoodDrink" Content="Bing Food &amp; Drink" Foreground="#9E9E9E"/>
+                                </StackPanel>
+                            </Border>
+                            <!-- More Bing Stuff -->
+                            <Border Background="#242424" CornerRadius="8" Padding="15" Grid.Row="1">
+                                <StackPanel>
+                                    <TextBlock Text="More Bing" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                    <CheckBox x:Name="ChkBingHealthFitness" Content="Bing Health &amp; Fitness" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkBingTranslator" Content="Bing Translator" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkBingTravel" Content="Bing Travel" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkBingSearch" Content="Bing Search" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkMicrosoftNews" Content="Microsoft News" Foreground="#9E9E9E"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </StackPanel>
+            </Border>
+            <!-- Card 3: 3D, Widgets, Special, System, Media -->
+            <Border Background="#1A1A1A" CornerRadius="10" Margin="20" Padding="20">
+                <StackPanel>
+                    <TextBlock Text="Services" Foreground="#BB86FC" FontSize="24" Margin="0,0,0,10"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <!-- 3D Apps + Entertainment -->
+                        <Grid Grid.Column="0" Margin="0,0,10,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <!-- 3D Apps -->
+                            <Border Background="#242424" CornerRadius="8" Padding="15" Margin="0,0,0,10" Grid.Row="0">
+                                <StackPanel>
+                                    <TextBlock Text="3D Apps" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                    <CheckBox x:Name="Chk3DViewer" Content="3D Viewer" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="Chk3DBuilder" Content="3D Builder" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkPaint3D" Content="Paint 3D" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkMixedReality" Content="Mixed Reality" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkPrint3D" Content="Print 3D" Foreground="#9E9E9E"/>
+                                </StackPanel>
+                            </Border>
+                            <!-- Entertainment Apps -->
+                            <Border Background="#242424" CornerRadius="8" Padding="15" Grid.Row="1">
+                                <StackPanel>
+                                    <TextBlock Text="Entertainment Apps" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                    <CheckBox x:Name="ChkFilmsTV" Content="Films &amp; TV" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkGrooveMusic" Content="Groove Music" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkClipchamp" Content="Clipchamp" Foreground="#9E9E9E"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                        <!-- System Apps -->
+                        <Border Background="#242424" CornerRadius="8" Margin="0,0,10,0" Padding="15" Grid.Column="1">
+                            <StackPanel>
+                                <TextBlock Text="System Apps" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                <CheckBox x:Name="ChkFeedbackHub" Content="Feedback Hub" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkGetHelp" Content="Get Help" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkGetStarted" Content="Get Started" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkQuickAssist" Content="Quick Assist" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkFamilySafety" Content="Family Safety" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkNetworkSpeedTest" Content="Network Speed Test" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkOneConnect" Content="One Connect" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkAlarmsClock" Content="Alarms &amp; Clock" Margin="0,0,0,8" Foreground="#9E9E9E"/>
+                                <CheckBox x:Name="ChkSoundRecorder" Content="Sound Recorder" Foreground="#9E9E9E"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

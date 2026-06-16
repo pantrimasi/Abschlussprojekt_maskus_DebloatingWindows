@@ -61,5 +61,25 @@
 
         // Clipboard
         public static void DisableCloudClipboard() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Clipboard\" /v CloudClipboardAutomaticUpload /t REG_DWORD /d 0 /f");
+
+        // Disable all
+        public static void DisableAll()
+        {
+            DisableTelemetry();
+            DisableActivityHistory();
+            DisableLocation();
+            DisableFeedback();
+            DisableSearchHistory();
+            DisableDiagnosticData();
+            DisableErrorReporting();
+            DisableHandwritingData();
+            DisableAdvertisingId();
+            DisableTailoredExperiences();
+            DisableSpeechRecognition();
+            DisableCameraAccess();
+            DisableMicrophoneAccess();
+            DisableContactsAccess();
+            DisableCloudClipboard();
+        }
     }
 }

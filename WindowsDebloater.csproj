@@ -9,7 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="GUI\Logo_Abschlussprojekt.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Management" Version="10.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="GUI\Logo_Abschlussprojekt.png" />
   </ItemGroup>
 
 </Project>
