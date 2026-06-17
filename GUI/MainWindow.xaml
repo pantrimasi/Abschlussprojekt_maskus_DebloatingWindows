@@ -6,7 +6,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:WindowsDebloater"
         mc:Ignorable="d"
-        Title="WindowsDebloater" WindowState="Maximized"
+        Title="WindowsDebloater" WindowState="Normal"
         WindowStyle="None"
         ResizeMode="CanResizeWithGrip"
         Background="#121212"
@@ -86,6 +86,6 @@
         </Grid>
 
         <!-- Tab content -->
-        <ContentControl x:Name="TabContent" Grid.Row="2" Margin="20"/>
+        <ContentControl x:Name="TabContent" Grid.Row="1" Margin="0,41,0,0" Grid.RowSpan="2"/>
     </Grid>
 </Window>

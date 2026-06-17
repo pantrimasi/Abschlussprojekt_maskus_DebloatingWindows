@@ -24,15 +24,18 @@
                                 <!-- Profile Management -->
                                 <Border Background="#242424" CornerRadius="8" Padding="15" Grid.Column="0">
                                     <StackPanel>
-                                        <TextBox Height="45" Margin="0,0,0,15" Background="#1A1A1A" BorderThickness="0" Foreground="#B0BEC5" Text="Search Profile"/>
+                                        <TextBox x:Name="TxtSearch" Height="40" Margin="0,0,0,15" Background="#1A1A1A" BorderThickness="0" Foreground="#B0BEC5" Padding="10,5" Text="Suchen..."/>
+
                                         <Border Background="#1A1A1A" CornerRadius="8" Padding="15" Margin="0,0,0,15">
                                             <StackPanel>
-                                                <TextBlock Text="Create Profile" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
-                                                <TextBlock Text="Create a custom profile from your selected settings." Foreground="#9E9E9E" TextWrapping="Wrap" FontSize="16"/>
+                                                <TextBlock Text="Eigenes Profil" Foreground="#BB86FC" FontSize="16" Margin="0,0,0,5"/>
+                                                <TextBlock Text="Erstelle ein Profil aus deinen eigenen Einstellungen."  Foreground="#9E9E9E" TextWrapping="Wrap" FontSize="13" Margin="0,0,0,10"/>
+                                                <Button Content="Profil erstellen" Click="BtnCreateProfile_Click" Height="35" FontSize="14" Background="#BB86FC" Foreground="#121212" FontWeight="Bold"/>
                                             </StackPanel>
                                         </Border>
-                                        <Button Content="Import Profile" Height="45" Margin="0,0,0,10" FontSize="20"/>
-                                        <Button Content="Export Profile" Height="45" FontSize="20"/>
+
+                                        <Button Content="Profil importieren" Click="BtnImport_Click" Height="40" Margin="0,0,0,10" FontSize="14"/>
+                                        <Button Content="Profil exportieren" Click="BtnExport_Click" Height="40" FontSize="14"/>
                                     </StackPanel>
                                 </Border>
                                 <!-- Profile Cards -->

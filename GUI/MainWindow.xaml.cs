@@ -63,11 +63,33 @@ namespace WindowsDebloater.GUI
             WindowState = WindowState.Minimized;
         }
 
+        private bool _isMaximized = false;
+        private double _prevLeft, _prevTop, _prevWidth, _prevHeight;
+
         private void Maximize_Click(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState == WindowState.Maximized
-                ? WindowState.Normal
-                : WindowState.Maximized;
+            if (_isMaximized)
+            {
+                Left = _prevLeft;
+                Top = _prevTop;
+                Width = _prevWidth;
+                Height = _prevHeight;
+                _isMaximized = false;
+            }
+            else
+            {
+                _prevLeft = Left;
+                _prevTop = Top;
+                _prevWidth = Width;
+                _prevHeight = Height;
+
+                var workArea = SystemParameters.WorkArea;
+                Left = workArea.Left;
+                Top = workArea.Top;
+                Width = workArea.Width;
+                Height = workArea.Height;
+                _isMaximized = true;
+            }
         }
 
 

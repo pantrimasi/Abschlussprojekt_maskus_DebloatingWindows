@@ -45,5 +45,21 @@ namespace WindowsDebloater.GUI.Tabs
 
         private void BtnPrivacy_Click(object sender, RoutedEventArgs e) =>
             ShowConfirm(WindowsDebloater.Core.ProfileManager.ApplyPrivacy);
+
+        private void BtnCreateProfile_Click(object sender, RoutedEventArgs e)
+        {
+            // load in main window
+            var mainWindow = (WindowsDebloater.GUI.MainWindow)Window.GetWindow(this);
+            mainWindow.TabContent.Content = new WindowsDebloater.GUI.Tabs.CreateProfile();
+        }
+        private void BtnImport_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO: Import logic
+        }
+
+        private void BtnExport_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO: Export logic
+        }
     }
 }
