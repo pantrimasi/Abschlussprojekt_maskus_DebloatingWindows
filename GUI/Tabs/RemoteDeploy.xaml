@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="WindowsDebloater.GUI.Tabs.RemoteDeploy"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="800" d:DesignHeight="450"
+    Background="#121212">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+
+            <!-- Remote Deploy -->
+            <Border Background="#1A1A1A" CornerRadius="10" Margin="0,0,0,15" Padding="20">
+                <StackPanel>
+                    <TextBlock Text="Remote Deploy" Foreground="#BB86FC" FontSize="24" Margin="0,0,0,10"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Verbindung -->
+                        <Border Background="#242424" CornerRadius="8" Padding="15" Grid.Column="0">
+                            <StackPanel>
+                                <TextBlock Text="Verbindung" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,15"/>
+
+                                <TextBlock Text="IP / Hostname" Foreground="#9E9E9E" FontSize="13" Margin="0,0,0,5"/>
+                                <TextBox x:Name="TxtHost" Height="35" Background="#1A1A1A" BorderThickness="0"
+                                         Foreground="#fffafa" Padding="10,5" Margin="0,0,0,10"
+                                         Text="192.168.1.1"/>
+
+                                <TextBlock Text="Port" Foreground="#9E9E9E" FontSize="13" Margin="0,0,0,5"/>
+                                <TextBox x:Name="TxtPort" Height="35" Background="#1A1A1A" BorderThickness="0"
+                                         Foreground="#fffafa" Padding="10,5" Margin="0,0,0,10"
+                                         Text="22"/>
+
+                                <TextBlock Text="Benutzername" Foreground="#9E9E9E" FontSize="13" Margin="0,0,0,5"/>
+                                <TextBox x:Name="TxtUsername" Height="35" Background="#1A1A1A" BorderThickness="0"
+                                         Foreground="#fffafa" Padding="10,5" Margin="0,0,0,10"
+                                         Text="Administrator"/>
+
+                                <TextBlock Text="Passwort" Foreground="#9E9E9E" FontSize="13" Margin="0,0,0,5"/>
+                                <PasswordBox x:Name="TxtPassword" Height="35" Background="#1A1A1A" BorderThickness="0"
+                                             Foreground="#fffafa" Padding="10,5" Margin="0,0,0,15"/>
+
+                                <Button Content="Verbinden" Click="BtnConnect_Click" Height="40"
+                                        Background="#BB86FC" Foreground="#121212" FontWeight="Bold" FontSize="14"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Deploy -->
+                        <Border Background="#242424" CornerRadius="8" Padding="15" Grid.Column="2">
+                            <StackPanel>
+                                <TextBlock Text="Deploy" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,15"/>
+
+                                <Border Background="#1A1A1A" CornerRadius="6" Padding="10" Margin="0,0,0,15">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Ellipse x:Name="StatusDot" Width="10" Height="10" Fill="#9E9E9E" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                                        <TextBlock x:Name="TxtStatus" Text="Nicht verbunden" Foreground="#9E9E9E" VerticalAlignment="Center" FontSize="13"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <TextBlock Text="Profil auswählen" Foreground="#9E9E9E" FontSize="13" Margin="0,0,0,5"/>
+                                <ComboBox x:Name="CmbProfile" Height="35" Margin="0,0,0,15">
+                                    <ComboBoxItem Content="Work Profile"/>
+                                    <ComboBoxItem Content="Gaming Profile"/>
+                                    <ComboBoxItem Content="Minimum Profile"/>
+                                    <ComboBoxItem Content="Developer Profile"/>
+                                    <ComboBoxItem Content="Privacy Profile"/>
+                                </ComboBox>
+
+                                <TextBlock Text="Ausgabe" Foreground="#9E9E9E" FontSize="13" Margin="0,0,0,5"/>
+                                <Border Background="#1A1A1A" CornerRadius="6" Padding="10" Margin="0,0,0,15" Height="150">
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                        <TextBlock x:Name="TxtOutput" Text="Keine Ausgabe..." Foreground="#9E9E9E" 
+                                                   FontSize="12" TextWrapping="Wrap" FontFamily="Consolas"/>
+                                    </ScrollViewer>
+                                </Border>
+
+                                <Button Content="Deploy starten" Click="BtnDeploy_Click" Height="40"
+                                        Background="#BB86FC" Foreground="#121212" FontWeight="Bold" FontSize="14"
+                                        IsEnabled="False" x:Name="BtnDeploy"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

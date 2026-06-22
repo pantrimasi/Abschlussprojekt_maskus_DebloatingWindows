@@ -6,103 +6,115 @@
     mc:Ignorable="d"
     d:DesignWidth="800" d:DesignHeight="450"
     Background="#121212">
-    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalContentAlignment="Stretch">
-        <StackPanel Margin="20">
-            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Profiles -->
-            <!-- Profile Settings -->
-            <Grid>
-                <Border Background="#1A1A1A" CornerRadius="10" Margin="20" Padding="20">
-                    <Grid>
-                        <StackPanel>
-                            <TextBlock Text="Profiles" Foreground="#BB86FC" FontSize="24" Margin="0,0,0,10"/>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="350"/>
-                                    <ColumnDefinition Width="20"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <!-- Profile Management -->
-                                <Border Background="#242424" CornerRadius="8" Padding="15" Grid.Column="0">
-                                    <StackPanel>
-                                        <TextBox x:Name="TxtSearch" Height="40" Margin="0,0,0,15" Background="#1A1A1A" BorderThickness="0" Foreground="#B0BEC5" Padding="10,5" Text="Suchen..."/>
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <StackPanel Margin="20">
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Profiles -->
+                <!-- Profile Settings -->
+                <Grid>
+                    <Border Background="#1A1A1A" CornerRadius="10" Margin="20" Padding="20">
+                        <Grid>
+                            <StackPanel>
+                                <TextBlock Text="Profiles" Foreground="#BB86FC" FontSize="24" Margin="0,0,0,10"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="350"/>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <!-- Profile Management -->
+                                    <Border Background="#242424" CornerRadius="8" Padding="15" Grid.Column="0">
+                                        <StackPanel>
+                                            <TextBox x:Name="TxtSearch" Height="40" Margin="0,0,0,15" Background="#1A1A1A" BorderThickness="0" Foreground="#B0BEC5" Padding="10,5" Text="Suchen..."/>
 
-                                        <Border Background="#1A1A1A" CornerRadius="8" Padding="15" Margin="0,0,0,15">
+                                            <Border Background="#1A1A1A" CornerRadius="8" Padding="15" Margin="0,0,0,15">
+                                                <StackPanel>
+                                                    <TextBlock Text="Eigenes Profil" Foreground="#BB86FC" FontSize="16" Margin="0,0,0,5"/>
+                                                    <TextBlock Text="Erstelle ein Profil aus deinen eigenen Einstellungen."  Foreground="#9E9E9E" TextWrapping="Wrap" FontSize="13" Margin="0,0,0,10"/>
+                                                    <Button Content="Profil erstellen" Click="BtnCreateProfile_Click" Height="35" FontSize="14" Background="#BB86FC" Foreground="#121212" FontWeight="Bold"/>
+                                                </StackPanel>
+                                            </Border>
+
+                                            <Button Content="Profil importieren" Click="BtnImport_Click" Height="40" Margin="0,0,0,10" FontSize="14"/>
+                                            <Button Content="Profil exportieren" Click="BtnExport_Click" Height="40" FontSize="14"/>
+                                        </StackPanel>
+                                    </Border>
+                                    <!-- Profile Cards -->
+                                    <StackPanel x:Name="ProfileCards" Grid.Column="2">
+                                        <!-- Work Profile -->
+                                        <Border Background="#242424" CornerRadius="8" Padding="20" Margin="0,0,0,10">
                                             <StackPanel>
-                                                <TextBlock Text="Eigenes Profil" Foreground="#BB86FC" FontSize="16" Margin="0,0,0,5"/>
-                                                <TextBlock Text="Erstelle ein Profil aus deinen eigenen Einstellungen."  Foreground="#9E9E9E" TextWrapping="Wrap" FontSize="13" Margin="0,0,0,10"/>
-                                                <Button Content="Profil erstellen" Click="BtnCreateProfile_Click" Height="35" FontSize="14" Background="#BB86FC" Foreground="#121212" FontWeight="Bold"/>
+                                                <TextBlock Text="Work Profile" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                                <TextBlock Text="Optimized for productivity and business use." Foreground="#9E9E9E" TextWrapping="Wrap" FontSize="16"/>
+                                                <Button Content="Anwenden" Click="BtnWork_Click" Margin="0,10,0,0" Height="35" HorizontalAlignment="Left" Width="120"/>
                                             </StackPanel>
                                         </Border>
-
-                                        <Button Content="Profil importieren" Click="BtnImport_Click" Height="40" Margin="0,0,0,10" FontSize="14"/>
-                                        <Button Content="Profil exportieren" Click="BtnExport_Click" Height="40" FontSize="14"/>
+                                        <!-- Gaming Profile -->
+                                        <Border Background="#242424" CornerRadius="8" Padding="20" Margin="0,0,0,10">
+                                            <StackPanel>
+                                                <TextBlock Text="Gaming Profile" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                                <TextBlock Text="Optimized for gaming and maximum performance." Foreground="#9E9E9E" TextWrapping="Wrap" FontSize="16"/>
+                                                <Button Content="Anwenden" Click="BtnGaming_Click" Margin="0,10,0,0" Height="35" HorizontalAlignment="Left" Width="120"/>
+                                            </StackPanel>
+                                        </Border>
+                                        <!-- Minimum Profile -->
+                                        <Border Background="#242424" CornerRadius="8" Padding="20" Margin="0,0,0,10">
+                                            <StackPanel>
+                                                <TextBlock Text="Minimum Profile" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                                <TextBlock Text="Optimized for minimal resource usage and basic functionality." Foreground="#9E9E9E" TextWrapping="Wrap" FontSize="16"/>
+                                                <Button Content="Anwenden" Click="BtnMinimum_Click" Margin="0,10,0,0" Height="35" HorizontalAlignment="Left" Width="120"/>
+                                            </StackPanel>
+                                        </Border>
+                                        <!-- Developer Profile -->
+                                        <Border Background="#242424" CornerRadius="8" Padding="20" Margin="0,0,0,10">
+                                            <StackPanel>
+                                                <TextBlock Text="Developer Profile" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                                <TextBlock Text="Optimized for development and maximum performance." Foreground="#9E9E9E" TextWrapping="Wrap" FontSize="16"/>
+                                                <Button Content="Anwenden" Click="BtnDeveloper_Click" Margin="0,10,0,0" Height="35" HorizontalAlignment="Left" Width="120"/>
+                                            </StackPanel>
+                                        </Border>
+                                        <!-- Privacy Profile -->
+                                        <Border Background="#242424" CornerRadius="8" Padding="20" Margin="0,0,0,10">
+                                            <StackPanel>
+                                                <TextBlock Text="Privacy Profile" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                                                <TextBlock Text="Optimized for privacy and minimal data collection." Foreground="#9E9E9E" TextWrapping="Wrap" FontSize="16"/>
+                                                <Button Content="Anwenden" Click="BtnPrivacy_Click" Margin="0,10,0,0" Height="35" HorizontalAlignment="Left" Width="120"/>
+                                            </StackPanel>
+                                        </Border>
                                     </StackPanel>
-                                </Border>
-                                <!-- Profile Cards -->
-                                <StackPanel Grid.Column="2">
-                                    <!-- Work Profile -->
-                                    <Border Background="#242424" CornerRadius="8" Padding="20" Margin="0,0,0,10">
-                                        <StackPanel>
-                                            <TextBlock Text="Work Profile" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
-                                            <TextBlock Text="Optimized for productivity and business use." Foreground="#9E9E9E" TextWrapping="Wrap" FontSize="16"/>
-                                            <Button Content="Anwenden" Click="BtnWork_Click" Margin="0,10,0,0" Height="35" HorizontalAlignment="Left" Width="120"/>
-                                        </StackPanel>
-                                    </Border>
-                                    <!-- Gaming Profile -->
-                                    <Border Background="#242424" CornerRadius="8" Padding="20" Margin="0,0,0,10">
-                                        <StackPanel>
-                                            <TextBlock Text="Gaming Profile" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
-                                            <TextBlock Text="Optimized for gaming and maximum performance." Foreground="#9E9E9E" TextWrapping="Wrap" FontSize="16"/>
-                                            <Button Content="Anwenden" Click="BtnGaming_Click" Margin="0,10,0,0" Height="35" HorizontalAlignment="Left" Width="120"/>
-                                        </StackPanel>
-                                    </Border>
-                                    <!-- Minimum Profile -->
-                                    <Border Background="#242424" CornerRadius="8" Padding="20" Margin="0,0,0,10">
-                                        <StackPanel>
-                                            <TextBlock Text="Minimum Profile" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
-                                            <TextBlock Text="Optimized for minimal resource usage and basic functionality." Foreground="#9E9E9E" TextWrapping="Wrap" FontSize="16"/>
-                                            <Button Content="Anwenden" Click="BtnMinimum_Click" Margin="0,10,0,0" Height="35" HorizontalAlignment="Left" Width="120"/>
-                                        </StackPanel>
-                                    </Border>
-                                    <!-- Developer Profile -->
-                                    <Border Background="#242424" CornerRadius="8" Padding="20" Margin="0,0,0,10">
-                                        <StackPanel>
-                                            <TextBlock Text="Developer Profile" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
-                                            <TextBlock Text="Optimized for development and maximum performance." Foreground="#9E9E9E" TextWrapping="Wrap" FontSize="16"/>
-                                            <Button Content="Anwenden" Click="BtnDeveloper_Click" Margin="0,10,0,0" Height="35" HorizontalAlignment="Left" Width="120"/>
-                                        </StackPanel>
-                                    </Border>
-                                    <!-- Privacy Profile -->
-                                    <Border Background="#242424" CornerRadius="8" Padding="20">
-                                        <StackPanel>
-                                            <TextBlock Text="Privacy Profile" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
-                                            <TextBlock Text="Optimized for privacy and minimal data collection." Foreground="#9E9E9E" TextWrapping="Wrap" FontSize="16"/>
-                                            <Button Content="Anwenden" Click="BtnPrivacy_Click" Margin="0,10,0,0" Height="35" HorizontalAlignment="Left" Width="120"/>
-                                        </StackPanel>
-                                    </Border>
-                                </StackPanel>
-                            </Grid>
-                        </StackPanel>
-                        <!-- Overlay -->
-                        <Grid x:Name="ConfirmOverlay" Visibility="Collapsed" Background="#99000000" Panel.ZIndex="10">
-                            <Border Background="#1E1E1E" CornerRadius="10" Padding="30"
-                                    HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
-                                <StackPanel>
-                                    <TextBlock Text="Profil anwenden" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
-                                    <TextBlock x:Name="TxtConfirmMessage"
-                                               Text="Bist du sicher? Die aktuellen Einstellungen werden verändert."
-                                               Foreground="#B0BEC5" TextWrapping="Wrap" FontSize="14" Margin="0,0,0,20"/>
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                        <Button Content="Anwenden" Click="BtnConfirm_Click" Width="100" Height="35" Margin="0,0,10,0"
-                                                Background="#BB86FC" Foreground="#121212"/>
-                                        <Button Content="Abbrechen" Click="BtnCancel_Click" Width="100" Height="35"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
+                                </Grid>
+                            </StackPanel>
                         </Grid>
-                    </Grid>
-                </Border>
-            </Grid>
-        </StackPanel>
-    </ScrollViewer>
+                    </Border>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+        <!-- Confirm Overlay -->
+        <Grid x:Name="ConfirmOverlay" Visibility="Collapsed" Background="#99000000" Panel.ZIndex="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Border Background="#1E1E1E" CornerRadius="10" Padding="30" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
+                <StackPanel>
+                    <TextBlock Text="Profil anwenden" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                    <TextBlock x:Name="TxtConfirmMessage" Text="Bist du sicher? Die aktuellen Einstellungen werden verändert." Foreground="#B0BEC5" TextWrapping="Wrap" FontSize="14" Margin="0,0,0,20"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Content="Anwenden" Click="BtnConfirm_Click" Width="100" Height="35" Margin="0,0,10,0" Background="#BB86FC" Foreground="#121212"/>
+                        <Button Content="Abbrechen" Click="BtnCancel_Click" Width="100" Height="35"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <!-- Export Overlay -->
+        <Grid x:Name="ExportOverlay" Visibility="Collapsed" Background="#99000000" Panel.ZIndex="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Border Background="#1E1E1E" CornerRadius="10" Padding="30" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
+                <StackPanel>
+                    <TextBlock Text="Profil exportieren" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                    <TextBlock Text="Wähle ein Profil zum exportieren." Foreground="#B0BEC5" FontSize="14" Margin="0,0,0,15"/>
+                    <ComboBox x:Name="CmbExportProfile" Margin="0,0,0,20" Height="35"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Content="Exportieren" Click="BtnConfirmExport_Click" Width="100" Height="35" Margin="0,0,10,0" Background="#BB86FC" Foreground="#121212"/>
+                        <Button Content="Abbrechen" Click="BtnCancelExport_Click" Width="100" Height="35"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
 </UserControl>

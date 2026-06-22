@@ -11,9 +11,8 @@
     <DockPanel>
         <!-- Footer -->
         <Grid DockPanel.Dock="Bottom" Background="#1A1A1A" Height="60">
-            <TextBox x:Name="TxtProfileName" Width="350" Height="30" Margin="0,0,0,0"
-                         Background="#242424" Foreground="#B0BEC5" BorderThickness="0" Padding="10,5"
-                         Text="Profilname..."/>
+            <TextBox x:Name="TxtProfileName" Width="350" Height="30"
+         Background="#242424" Foreground="#9E9E9E" BorderThickness="0" Padding="10,5" Text="Profilname..." HorizontalAlignment="Center" GotFocus="TxtProfileName_GotFocus" LostFocus="TxtProfileName_LostFocus"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,0">
                 <Button Content="Zurück" Click="BtnBack_Click" Width="120" Height="30" Margin="0,0,10,0" FontSize="15"/>
                 <Button Content="Speichern" Click="BtnSave_Click" Width="120" Height="30" FontSize="16" Background="#BB86FC" Foreground="#121212" FontWeight="Bold"/>

@@ -21,6 +21,7 @@
             <RowDefinition Height="90"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
         <!-- Navigation bar -->
@@ -53,8 +54,8 @@
                 <TextBlock x:Name="NavProfiles" Text="Profiles" Foreground="#fffafa"
                    VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonDown="NavProfiles_Click"
                    FontSize="22" Margin="20,0" FontWeight="Medium"/>
-                <TextBlock x:Name="NavBenchmark" Text="Benchmark" Foreground="#fffafa"
-                   VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonDown="NavBenchmark_Click"
+                <TextBlock x:Name="NavRemoteDeploy" Text="Remote Deploy" Foreground="#fffafa"
+                   VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonDown="NavRemoteDeploy_Click"
                    FontSize="22" Margin="20,0" FontWeight="Medium"/>
             </StackPanel>
 
@@ -84,8 +85,41 @@
             <TextBlock x:Name="TxtRam" Text="- GB Ram Verbrauch" Foreground="#fffafa"
                        Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontWeight="Medium"/>
         </Grid>
+        <!-- Apply bar -->
+        <Grid Grid.Row="3" Background="#1A1A1A">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0">
+                <Button x:Name="BtnBackups" Content="Backups" Click="BtnBackups_Click"
+                Height="35" Width="120" Margin="0,0,10,0" FontSize="14"/>
+                <Button x:Name="BtnApplyAll" Content="Anwenden" Click="BtnApplyAll_Click"
+                Height="35" Width="120" Background="#BB86FC" Foreground="#121212"
+                FontWeight="Bold" FontSize="14"/>
+            </StackPanel>
+        </Grid>
 
         <!-- Tab content -->
         <ContentControl x:Name="TabContent" Grid.Row="1" Margin="0,41,0,0" Grid.RowSpan="2"/>
+
+        <!-- Backup Overlay -->
+        <Grid x:Name="BackupOverlay" Visibility="Collapsed" Background="#99000000" 
+      Panel.ZIndex="10" Grid.RowSpan="4">
+            <Border Background="#1E1E1E" CornerRadius="10" Padding="30"
+            HorizontalAlignment="Center" VerticalAlignment="Center" Width="450">
+                <StackPanel>
+                    <TextBlock Text="Backup wiederherstellen" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
+                    <TextBlock Text="Wähle einen Wiederherstellungspunkt." Foreground="#B0BEC5" FontSize="14" Margin="0,0,0,15"/>
+                    <TextBlock Text="Windows wird nach der Wiederherstellung neu gestartet!!!" 
+                    Foreground="#FFD700" TextWrapping="Wrap" FontSize="13" Margin="0,0,0,15"/>
+                    <ComboBox x:Name="CmbBackups" Height="35" Margin="0,0,0,20"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Content="Wiederherstellen" Click="BtnConfirmRestore_Click"
+                        Width="130" Height="35" Margin="0,0,10,0"
+                        Background="#BB86FC" Foreground="#121212"/>
+                        <Button Content="Abbrechen" Click="BtnCancelBackup_Click"
+                        Width="100" Height="35"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+
     </Grid>
 </Window>

@@ -10,6 +10,26 @@ namespace WindowsDebloater.GUI.Tabs
             InitializeComponent();
         }
 
+        private void TxtProfileName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TxtProfileName.Text == "Profilname...")
+            {
+                TxtProfileName.Text = "";
+                TxtProfileName.Foreground = new System.Windows.Media.SolidColorBrush(
+                    System.Windows.Media.Color.FromRgb(0xFF, 0xFA, 0xFA));
+            }
+        }
+
+        private void TxtProfileName_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TxtProfileName.Text))
+            {
+                TxtProfileName.Text = "Profilname...";
+                TxtProfileName.Foreground = new System.Windows.Media.SolidColorBrush(
+                    System.Windows.Media.Color.FromRgb(0x9E, 0x9E, 0x9E));
+            }
+        }
+
         private void BtnAnwenden_Click(object sender, RoutedEventArgs e)
         {
             bool triggerRestart = false;
@@ -179,10 +199,170 @@ namespace WindowsDebloater.GUI.Tabs
         {
             string name = TxtProfileName.Text.Trim();
             if (string.IsNullOrEmpty(name) || name == "Profilname...") return;
+            var checkboxes = new System.Collections.Generic.Dictionary<string, bool>
+    {
+        // Animationen
+        { "ChkMenuDelay", ChkMenuDelay.IsChecked == true },
+        { "ChkTaskbarAnim", ChkTaskbarAnim.IsChecked == true },
+        { "ChkDynamicScrollbars", ChkDynamicScrollbars.IsChecked == true },
+        { "ChkVisualFX", ChkVisualFX.IsChecked == true },
+        { "ChkUserPrefMask", ChkUserPrefMask.IsChecked == true },
+        { "ChkMinAnimate", ChkMinAnimate.IsChecked == true },
+        { "ChkDragFullWindows", ChkDragFullWindows.IsChecked == true },
+        { "ChkTransparency", ChkTransparency.IsChecked == true },
+        { "ChkPreviewWindow", ChkPreviewWindow.IsChecked == true },
+        { "ChkSearchboxMode", ChkSearchboxMode.IsChecked == true },
+        { "ChkTouchPrediction", ChkTouchPrediction.IsChecked == true },
+        { "ChkModeChangeAnim", ChkModeChangeAnim.IsChecked == true },
 
-            // save profile
-            // TODO: JSON speichern
+        // Services
+        { "ChkDiagTrack", ChkDiagTrack.IsChecked == true },
+        { "ChkWerSvc", ChkWerSvc.IsChecked == true },
+        { "ChkLfsvc", ChkLfsvc.IsChecked == true },
+        { "ChkPcaSvc", ChkPcaSvc.IsChecked == true },
+        { "ChkPimIndex", ChkPimIndex.IsChecked == true },
+        { "ChkDps", ChkDps.IsChecked == true },
+        { "ChkRetailDemo", ChkRetailDemo.IsChecked == true },
+        { "ChkMapsBroker", ChkMapsBroker.IsChecked == true },
+        { "ChkWpcMonSvc", ChkWpcMonSvc.IsChecked == true },
+        { "ChkSCardSvr", ChkSCardSvr.IsChecked == true },
+        { "ChkFax", ChkFax.IsChecked == true },
+        { "ChkWisvc", ChkWisvc.IsChecked == true },
+        { "ChkPhoneSvc", ChkPhoneSvc.IsChecked == true },
+        { "ChkSpooler", ChkSpooler.IsChecked == true },
+        { "ChkWbioSrvc", ChkWbioSrvc.IsChecked == true },
+        { "ChkTermService", ChkTermService.IsChecked == true },
+        { "ChkWwanSvc", ChkWwanSvc.IsChecked == true },
+        { "ChkXboxGipSvc", ChkXboxGipSvc.IsChecked == true },
+        { "ChkXblAuthManager", ChkXblAuthManager.IsChecked == true },
+        { "ChkXblGameSave", ChkXblGameSave.IsChecked == true },
+        { "ChkXboxNetApiSvc", ChkXboxNetApiSvc.IsChecked == true },
+        { "ChkDosvc", ChkDosvc.IsChecked == true },
+        { "ChkRemoteRegistry", ChkRemoteRegistry.IsChecked == true },
+        { "ChkCscService", ChkCscService.IsChecked == true },
+        { "ChkIphlpsvc", ChkIphlpsvc.IsChecked == true },
+        { "ChkTabletInput", ChkTabletInput.IsChecked == true },
+        { "ChkSensorService", ChkSensorService.IsChecked == true },
+        { "ChkSysMain", ChkSysMain.IsChecked == true },
+        { "ChkFhsvc", ChkFhsvc.IsChecked == true },
+        { "ChkStiSvc", ChkStiSvc.IsChecked == true },
+        { "ChkLmhosts", ChkLmhosts.IsChecked == true },
+        { "ChkTrkWks", ChkTrkWks.IsChecked == true },
+        { "ChkCertPropSvc", ChkCertPropSvc.IsChecked == true },
+        { "ChkHyperV", ChkHyperV.IsChecked == true },
+        { "ChkWcolorcp", ChkWcolorcp.IsChecked == true },
+        { "ChkWebClient", ChkWebClient.IsChecked == true },
+        { "ChkP2p", ChkP2p.IsChecked == true },
+
+        // DataProtection
+        { "ChkTelemetry", ChkTelemetry.IsChecked == true },
+        { "ChkActivityHistory", ChkActivityHistory.IsChecked == true },
+        { "ChkLocation", ChkLocation.IsChecked == true },
+        { "ChkFeedback", ChkFeedback.IsChecked == true },
+        { "ChkSearchHistory", ChkSearchHistory.IsChecked == true },
+        { "ChkDiagnosticData", ChkDiagnosticData.IsChecked == true },
+        { "ChkErrorReporting", ChkErrorReporting.IsChecked == true },
+        { "ChkHandwritingData", ChkHandwritingData.IsChecked == true },
+        { "ChkAdvertisingId", ChkAdvertisingId.IsChecked == true },
+        { "ChkTailoredExperiences", ChkTailoredExperiences.IsChecked == true },
+        { "ChkSpeechRecognition", ChkSpeechRecognition.IsChecked == true },
+        { "ChkCamera", ChkCamera.IsChecked == true },
+        { "ChkMicrophone", ChkMicrophone.IsChecked == true },
+        { "ChkContacts", ChkContacts.IsChecked == true },
+        { "ChkCloudClipboard", ChkCloudClipboard.IsChecked == true },
+
+        // Ads
+        { "ChkAdsAdvertisingId", ChkAdsAdvertisingId.IsChecked == true },
+        { "ChkStartMenuSuggestions", ChkStartMenuSuggestions.IsChecked == true },
+        { "ChkLockScreenAds", ChkLockScreenAds.IsChecked == true },
+        { "ChkAppSuggestions", ChkAppSuggestions.IsChecked == true },
+        { "ChkBingSearch", ChkBingSearch.IsChecked == true },
+        { "ChkExplorerAds", ChkExplorerAds.IsChecked == true },
+        { "ChkSettingsAds", ChkSettingsAds.IsChecked == true },
+        { "ChkTips", ChkTips.IsChecked == true },
+        { "ChkSetupAds", ChkSetupAds.IsChecked == true },
+        { "ChkWelcomePage", ChkWelcomePage.IsChecked == true },
+        { "ChkPopups", ChkPopups.IsChecked == true },
+        { "ChkWidgetAds", ChkWidgetAds.IsChecked == true },
+
+        // App Removal
+        { "ChkCopilot", ChkCopilot.IsChecked == true },
+        { "ChkCortana", ChkCortana.IsChecked == true },
+        { "ChkJournal", ChkJournal.IsChecked == true },
+        { "ChkDevHome", ChkDevHome.IsChecked == true },
+        { "ChkXboxApp", ChkXboxApp.IsChecked != false },
+        { "ChkXboxGameBar", ChkXboxGameBar.IsChecked != false },
+        { "ChkXboxConsoleCompanion", ChkXboxConsoleCompanion.IsChecked != false },
+        { "ChkXboxTCUI", ChkXboxTCUI.IsChecked != false },
+        { "ChkXboxIdentityProvider", ChkXboxIdentityProvider.IsChecked != false },
+        { "ChkXboxSpeechToText", ChkXboxSpeechToText.IsChecked != false },
+        { "ChkSolitaire", ChkSolitaire.IsChecked == true },
+        { "ChkTeamsNew", ChkTeamsNew.IsChecked == true },
+        { "ChkTeamsOld", ChkTeamsOld.IsChecked == true },
+        { "ChkSkype", ChkSkype.IsChecked == true },
+        { "ChkMailCalendar", ChkMailCalendar.IsChecked == true },
+        { "ChkPeople", ChkPeople.IsChecked == true },
+        { "ChkMessaging", ChkMessaging.IsChecked == true },
+        { "ChkPhoneLink", ChkPhoneLink.IsChecked == true },
+        { "ChkStickyNotes", ChkStickyNotes.IsChecked == true },
+        { "ChkToDo", ChkToDo.IsChecked == true },
+        { "ChkOneNote", ChkOneNote.IsChecked == true },
+        { "ChkOfficeHub", ChkOfficeHub.IsChecked == true },
+        { "ChkPowerBI", ChkPowerBI.IsChecked == true },
+        { "ChkPowerAutomate", ChkPowerAutomate.IsChecked == true },
+        { "ChkSway", ChkSway.IsChecked == true },
+        { "ChkPCManager", ChkPCManager.IsChecked == true },
+        { "ChkBingNews", ChkBingNews.IsChecked == true },
+        { "ChkBingWeather", ChkBingWeather.IsChecked == true },
+        { "ChkBingFinance", ChkBingFinance.IsChecked == true },
+        { "ChkBingSports", ChkBingSports.IsChecked == true },
+        { "ChkBingFoodDrink", ChkBingFoodDrink.IsChecked == true },
+        { "ChkBingHealthFitness", ChkBingHealthFitness.IsChecked == true },
+        { "ChkBingTranslator", ChkBingTranslator.IsChecked == true },
+        { "ChkBingTravel", ChkBingTravel.IsChecked == true },
+        { "ChkMicrosoftNews", ChkMicrosoftNews.IsChecked == true },
+        { "Chk3DViewer", Chk3DViewer.IsChecked == true },
+        { "Chk3DBuilder", Chk3DBuilder.IsChecked == true },
+        { "ChkPaint3D", ChkPaint3D.IsChecked == true },
+        { "ChkMixedReality", ChkMixedReality.IsChecked == true },
+        { "ChkPrint3D", ChkPrint3D.IsChecked == true },
+        { "ChkFilmsTV", ChkFilmsTV.IsChecked == true },
+        { "ChkGrooveMusic", ChkGrooveMusic.IsChecked == true },
+        { "ChkClipchamp", ChkClipchamp.IsChecked == true },
+        { "ChkFeedbackHub", ChkFeedbackHub.IsChecked == true },
+        { "ChkGetHelp", ChkGetHelp.IsChecked == true },
+        { "ChkGetStarted", ChkGetStarted.IsChecked == true },
+        { "ChkQuickAssist", ChkQuickAssist.IsChecked == true },
+        { "ChkFamilySafety", ChkFamilySafety.IsChecked == true },
+        { "ChkNetworkSpeedTest", ChkNetworkSpeedTest.IsChecked == true },
+        { "ChkOneConnect", ChkOneConnect.IsChecked == true },
+        { "ChkAlarmsClock", ChkAlarmsClock.IsChecked == true },
+        { "ChkSoundRecorder", ChkSoundRecorder.IsChecked == true },
+        { "ChkWidgets", ChkWidgets.IsChecked == true },
+        { "ChkWidgetsPlatform", ChkWidgetsPlatform.IsChecked == true },
+        { "ChkWebExperiencePack", ChkWebExperiencePack.IsChecked == true },
+        { "ChkCrossDevice", ChkCrossDevice.IsChecked == true },
+        { "ChkEdge", ChkEdge.IsChecked == true },
+        { "ChkOneDrive", ChkOneDrive.IsChecked == true },
+        { "ChkOutlook", ChkOutlook.IsChecked == true },
+        { "ChkWhiteboard", ChkWhiteboard.IsChecked == true },
+        { "ChkRemoteDesktop", ChkRemoteDesktop.IsChecked == true },
+        { "Chk365Companions", Chk365Companions.IsChecked == true }
+    };
+            string json = System.Text.Json.JsonSerializer.Serialize(
+                new { name, checkboxes },
+                new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
+
+            string folder = System.IO.Path.Combine(
+                System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData),
+                "WindowsDebloater", "profiles");
+
+            System.IO.Directory.CreateDirectory(folder);
+            System.IO.File.WriteAllText(System.IO.Path.Combine(folder, $"{name}.json"), json);
+
+            BtnBack_Click(sender, e);
         }
+
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             var mainWindow = Application.Current.MainWindow as WindowsDebloater.GUI.MainWindow;

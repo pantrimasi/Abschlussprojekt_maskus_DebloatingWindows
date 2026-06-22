@@ -17,9 +17,12 @@ namespace WindowsDebloater.GUI.Tabs
         {
             string edition = (CmbEdition.SelectedItem as ComboBoxItem)?.Content.ToString() ?? "";
 
-            TxtStatus.Text = "Aktivierung läuft...";
+            TxtStatus.Text = "Backup wird erstellt...";
             BtnActivate.IsEnabled = false;
 
+            await Task.Run(() => WindowsDebloater.Core.Backup.CreateRestorePoint());
+
+            TxtStatus.Text = "Aktivierung läuft...";
             await Task.Run(() =>
             {
                 if (edition == "Windows 11 Pro") WindowsDebloater.Core.WindowsActivation.ActivatePro();
