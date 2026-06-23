@@ -46,6 +46,11 @@
                                     <TextBlock Text="Data Protection Default" Foreground="#BB86FC" FontSize="20" Margin="0,0,0,10"/>
                                     <CheckBox x:Name="ChkAdvertisingId" Content="Werbe-ID" Margin="0,0,0,5" Foreground="#9E9E9E"/>
                                     <CheckBox x:Name="ChkContacts" Content="Kontakte" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkPersonalizedOffers" Content="Personalisierte Angebote" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkPersonalizedTips" Content="Personalisierte Tipps" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkLanguageList" Content="Sprachlisten-Zugriff" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkAppLaunchTracking" Content="App-Start Tracking" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                    <CheckBox x:Name="ChkSettingsNotifications" Content="Einstellungs-Empfehlungen" Foreground="#9E9E9E"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
@@ -104,9 +109,8 @@
 									<CheckBox x:Name="ChkLockScreenAds" Content="Sperrbildschirm-Werbung" Margin="0,0,0,5" Foreground="#9E9E9E"/>
 									<CheckBox x:Name="ChkAdsAdvertisingId" Content="Werbe-ID" Margin="0,0,0,5" Foreground="#9E9E9E"/>
 									<CheckBox x:Name="ChkWidgetAds" Content="Widget-Werbung" Margin="0,0,0,15" Foreground="#9E9E9E"/>
-									<CheckBox x:Name="ChkPopups" Content="Popups" Margin="0,0,0,5" Foreground="#9E9E9E"/>
-
-								</StackPanel>
+                                    <CheckBox x:Name="ChkPopups" Content="Popups" Margin="0,0,0,5" Foreground="#9E9E9E"/>
+                                </StackPanel>
 							</Border>
 						</Grid>
 

@@ -62,6 +62,20 @@
         // Clipboard
         public static void DisableCloudClipboard() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Clipboard\" /v CloudClipboardAutomaticUpload /t REG_DWORD /d 0 /f");
 
+        // personalized offers
+        public static void DisablePersonalizedOffers() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-338388Enabled /t REG_DWORD /d 0 /f");
+
+        // personalized tips
+        public static void DisablePersonalizedTips() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-353698Enabled /t REG_DWORD /d 0 /f");
+
+        // language list access
+        public static void DisableLanguageListAccess() => RunRegistryCommand("reg add \"HKCU\\Control Panel\\International\\User Profile\" /v HttpAcceptLanguageOptOut /t REG_DWORD /d 1 /f");
+
+        // app launch tracking
+        public static void DisableAppLaunchTracking() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v Start_TrackProgs /t REG_DWORD /d 0 /f");
+
+        // settings notifications + recommendations
+        public static void DisableSettingsNotifications() => RunRegistryCommand("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-338393Enabled /t REG_DWORD /d 0 /f");
         // Disable all
         public static void DisableAll()
         {
@@ -80,6 +94,11 @@
             DisableMicrophoneAccess();
             DisableContactsAccess();
             DisableCloudClipboard();
+            DisablePersonalizedOffers();
+            DisablePersonalizedTips();
+            DisableLanguageListAccess();
+            DisableAppLaunchTracking();
+            DisableSettingsNotifications();
         }
     }
 }

@@ -27,6 +27,11 @@ namespace WindowsDebloater.GUI.Tabs
             if (ChkMicrophone.IsChecked == true) WindowsDebloater.Core.DataProtection.DisableMicrophoneAccess();
             if (ChkContacts.IsChecked == true) WindowsDebloater.Core.DataProtection.DisableContactsAccess();
             if (ChkCloudClipboard.IsChecked == true) WindowsDebloater.Core.DataProtection.DisableCloudClipboard();
+            if (ChkPersonalizedOffers.IsChecked == true) WindowsDebloater.Core.DataProtection.DisablePersonalizedOffers();
+            if (ChkPersonalizedTips.IsChecked == true) WindowsDebloater.Core.DataProtection.DisablePersonalizedTips();
+            if (ChkLanguageList.IsChecked == true) WindowsDebloater.Core.DataProtection.DisableLanguageListAccess();
+            if (ChkAppLaunchTracking.IsChecked == true) WindowsDebloater.Core.DataProtection.DisableAppLaunchTracking();
+            if (ChkSettingsNotifications.IsChecked == true) WindowsDebloater.Core.DataProtection.DisableSettingsNotifications();
 
             // ------------------------------------------------------------------------- Ads
             if (ChkAdsAdvertisingId.IsChecked == true) WindowsDebloater.Core.Ads.DisableAdvertisingId();
