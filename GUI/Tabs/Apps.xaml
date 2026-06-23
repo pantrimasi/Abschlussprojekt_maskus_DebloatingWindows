@@ -8,7 +8,7 @@
              Background="#121212">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalContentAlignment="Stretch">
         <StackPanel Margin="20">
-            <!-- Card 1: AI, Gaming, Communication -->
+            <!-- AI, Gaming, Communication -->
             <Border Background="#1A1A1A" CornerRadius="10" Margin="20" Padding="20">
                 <StackPanel>
                     <TextBlock Text="Services" Foreground="#BB86FC" FontSize="24" Margin="0,0,0,10"/>

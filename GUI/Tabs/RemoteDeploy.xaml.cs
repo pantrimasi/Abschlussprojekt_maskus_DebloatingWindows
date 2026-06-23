@@ -96,32 +96,104 @@ namespace WindowsDebloater.GUI.Tabs
 
         private string[] GetProfileCommands(string profile)
         {
-            // check if custom profile
-            foreach (ComboBoxItem item in CmbProfile.Items)
-            {
-                if (item.Content.ToString() == profile && item.Tag != null)
-                {
-                    return GetCustomProfileCommands(item.Tag.ToString());
-                }
-            }
+            var selected = CmbProfile.SelectedItem as ComboBoxItem;
+            if (selected?.Tag != null)
+                return GetCustomProfileCommands(selected.Tag.ToString());
 
-            // preset commands
-            var cmds = new System.Collections.Generic.List<string>
-    {
-        "powershell -Command \"Stop-Service DiagTrack -Force; Set-Service DiagTrack -StartupType Disabled\"",
-        "powershell -Command \"Stop-Service WerSvc -Force; Set-Service WerSvc -StartupType Disabled\""
-    };
+            var cmds = new System.Collections.Generic.List<string>();
+
+
+            cmds.Add("powershell -Command \"Stop-Service DiagTrack -Force; Set-Service DiagTrack -StartupType Disabled\"");
+            cmds.Add("powershell -Command \"Stop-Service WerSvc -Force; Set-Service WerSvc -StartupType Disabled\"");
+            cmds.Add("powershell -Command \"reg add \\\"HKLM\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\Windows\\\\DataCollection\\\" /v AllowTelemetry /t REG_DWORD /d 0 /f\"");
+            cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\AdvertisingInfo\\\" /v Enabled /t REG_DWORD /d 0 /f\"");
+            cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\ContentDeliveryManager\\\" /v ContentDeliveryAllowed /t REG_DWORD /d 0 /f\"");
+            cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Search\\\" /v BingSearchEnabled /t REG_DWORD /d 0 /f\"");
+
+            if (profile == "Work Profile")
+            {
+                cmds.Add("powershell -Command \"Stop-Service lfsvc -Force; Set-Service lfsvc -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service RetailDemo -Force; Set-Service RetailDemo -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service MapsBroker -Force; Set-Service MapsBroker -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service WpcMonSvc -Force; Set-Service WpcMonSvc -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*BingNews*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*BingWeather*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*Copilot*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*Cortana*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*3DViewer*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*ZuneVideo*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*ZuneMusic*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*Solitaire*\\\" | Remove-AppxPackage\"");
+            }
 
             if (profile == "Gaming Profile")
             {
                 cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\VisualEffects\\\" /v VisualFXSetting /t REG_DWORD /d 2 /f\"");
                 cmds.Add("powershell -Command \"Stop-Service SysMain -Force; Set-Service SysMain -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service TabletInputService -Force; Set-Service TabletInputService -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service SensorService -Force; Set-Service SensorService -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service lfsvc -Force; Set-Service lfsvc -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service MapsBroker -Force; Set-Service MapsBroker -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service RetailDemo -Force; Set-Service RetailDemo -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\Control Panel\\\\Desktop\\\" /v MenuShowDelay /t REG_SZ /d 0 /f\"");
+                cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\Advanced\\\" /v TaskbarAnimations /t REG_DWORD /d 0 /f\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*BingNews*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*Copilot*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*ZuneVideo*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*ZuneMusic*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"MSTeams\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*Skype*\\\" | Remove-AppxPackage\"");
             }
 
-            if (profile == "Minimum Profile" || profile == "Privacy Profile")
+            if (profile == "Minimum Profile")
             {
-                cmds.Add("powershell -Command \"reg add \\\"HKLM\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\Windows\\\\DataCollection\\\" /v AllowTelemetry /t REG_DWORD /d 0 /f\"");
                 cmds.Add("powershell -Command \"Stop-Service lfsvc -Force; Set-Service lfsvc -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service SysMain -Force; Set-Service SysMain -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service TabletInputService -Force; Set-Service TabletInputService -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service SensorService -Force; Set-Service SensorService -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service XboxGipSvc -Force; Set-Service XboxGipSvc -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service XblAuthManager -Force; Set-Service XblAuthManager -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service XblGameSave -Force; Set-Service XblGameSave -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service XboxNetApiSvc -Force; Set-Service XboxNetApiSvc -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service Spooler -Force; Set-Service Spooler -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"Stop-Service Fax -Force; Set-Service Fax -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\Control Panel\\\\Desktop\\\" /v MenuShowDelay /t REG_SZ /d 0 /f\"");
+                cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\Advanced\\\" /v TaskbarAnimations /t REG_DWORD /d 0 /f\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*Copilot*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*Cortana*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"MSTeams\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*Skype*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*BingNews*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*BingWeather*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*ZuneVideo*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*ZuneMusic*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*3DViewer*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"*Solitaire*\\\" | Remove-AppxPackage\"");
+                cmds.Add("powershell -Command \"Get-AppxPackage -Name \\\"MicrosoftWindows.Client.WebExperiencePack\\\" | Remove-AppxPackage\"");
+            }
+
+            if (profile == "Privacy Profile")
+            {
+                cmds.Add("powershell -Command \"Stop-Service lfsvc -Force; Set-Service lfsvc -StartupType Disabled\"");
+                cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\CapabilityAccessManager\\\\ConsentStore\\\\webcam\\\" /v Value /t REG_SZ /d Deny /f\"");
+                cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\CapabilityAccessManager\\\\ConsentStore\\\\microphone\\\" /v Value /t REG_SZ /d Deny /f\"");
+                cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\CapabilityAccessManager\\\\ConsentStore\\\\contacts\\\" /v Value /t REG_SZ /d Deny /f\"");
+                cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\SOFTWARE\\\\Microsoft\\\\Clipboard\\\" /v CloudClipboardAutomaticUpload /t REG_DWORD /d 0 /f\"");
+                cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\SOFTWARE\\\\Microsoft\\\\InputPersonalization\\\" /v RestrictImplicitInkCollection /t REG_DWORD /d 1 /f\"");
+                cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Privacy\\\" /v TailoredExperiencesWithDiagnosticDataEnabled /t REG_DWORD /d 0 /f\"");
+                cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\SOFTWARE\\\\Microsoft\\\\Speech_OneCore\\\\Preferences\\\" /v ModelDownloadAllowed /t REG_DWORD /d 0 /f\"");
+                cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Search\\\" /v HistoryViewEnabled /t REG_DWORD /d 0 /f\"");
+                cmds.Add("powershell -Command \"reg add \\\"HKLM\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\Windows\\\\Windows Error Reporting\\\" /v Disabled /t REG_DWORD /d 1 /f\"");
+            }
+
+            if (profile == "Developer Profile")
+            {
+                cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\Advanced\\\" /v HideFileExt /t REG_DWORD /d 0 /f\"");
+                cmds.Add("powershell -Command \"reg add \\\"HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\Advanced\\\" /v Hidden /t REG_DWORD /d 1 /f\"");
+                cmds.Add("powershell -Command \"reg add \\\"HKLM\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\AppModelUnlock\\\" /v AllowDevelopmentWithoutDevLicense /t REG_DWORD /d 1 /f\"");
+                cmds.Add("powershell -Command \"Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force\"");
+                cmds.Add("powershell -Command \"dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart\"");
+                cmds.Add("powershell -Command \"Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0\"");
             }
 
             return cmds.ToArray();
