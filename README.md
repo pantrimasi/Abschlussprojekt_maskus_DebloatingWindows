@@ -1,154 +1,185 @@
 # WindowsDebloater
 
-*WindowsDebloater ist eine Desktop-Anwendung für Windows, die unnötige Funktionen, Werbung, Telemetrie und Hintergrunddienste mit wenigen Klicks deaktiviert. Das Ziel des Projekts ist es, ein Windows-System übersichtlicher, datenschutzfreundlicher und ressourcenschonender zu gestalten.*
+*Eine moderne WPF-Anwendung zum Debloaten, Optimieren und Absichern von Windows 11.*
 
 ## Übersicht
 
-WindowsDebloater wurde mit C# und WPF unter .NET 10.0 entwickelt. Die Anwendung bietet eine grafische Oberfläche, über die verschiedene Optimierungen ausgewählt und angewendet werden können.
-
-Der Fokus liegt auf:
-
-- Deaktivieren von Windows-Werbung
-- Verbessern des Datenschutzes
-- Abschalten unnötiger Hintergrunddienste
-- Entfernen von visuellen Effekten
-- Reduzieren von Autostart-Einträgen
-
-Alle Optimierungen können direkt über die Benutzeroberfläche ausgewählt werden.
+WindowsDebloater ist ein Abschlussprojekt, das mit C# und .NET 10.0 entwickelt wurde. Die Anwendung bietet eine übersichtliche grafische Oberfläche, mit der Benutzer Windows 11 an ihre Bedürfnisse anpassen können. Dazu gehören das Entfernen vorinstallierter Apps, das Deaktivieren unnötiger Dienste, Datenschutz-Optimierungen, das Anwenden von Profilen sowie die Verwaltung von Backups und Remote-Deployments.
 
 ## Funktionen
 
-### Animationen
+- Debloating von vorinstallierten Windows-Apps
+- Datenschutz- und Telemetrie-Einstellungen
+- Deaktivieren unnötiger Windows-Dienste
+- Vordefinierte Profile (Work, Gaming, Minimum, Developer, Privacy)
+- Eigene Profile erstellen, importieren und exportieren
+- Windows-Wiederherstellungspunkte erstellen und wiederherstellen
+- Windows-Aktivierung über KMS
+- Live-Anzeige von CPU-, RAM- und Prozessauslastung
+- Remote-Deployment über SSH
+- Modernes WPF-Design mit eigenem Fenstersystem
 
-Das Modul `Animationen.cs` deaktiviert verschiedene visuelle Effekte von Windows.
+## Verwendete Technologien
 
-Beispiele:
-
-- Fensteranimationen
-- Transparenzeffekte
-- Aero Peek
-- Touch-Feedback
-- Menüverzögerungen
-
-Nach dem Anwenden wird der Windows Explorer automatisch neu gestartet.
-
-### Werbung
-
-Das Modul `Ads.cs` deaktiviert verschiedene Werbe- und Vorschlagsfunktionen von Windows.
-
-Beispiele:
-
-- Startmenü-Vorschläge
-- Sperrbildschirm-Werbung
-- App-Empfehlungen
-- Widget-Werbung
-- Bing-Integration
-
-### Datenschutz
-
-Das Modul `DataProtection.cs` deaktiviert verschiedene Datenschutzfunktionen.
-
-Beispiele:
-
-- Telemetrie
-- Aktivitätsverlauf
-- Standortdienste
-- Suchverlauf
-- Fehlerberichterstattung
-- Kamera- und Mikrofonzugriffe
-- Cloud-Zwischenablage
-
-### Dienste
-
-Das Modul `Services.cs` deaktiviert verschiedene Windows-Dienste, die auf vielen Systemen nicht benötigt werden.
-
-Unter anderem:
-
-- Xbox-Dienste
-- Datenerfassungsdienste
-- Netzwerkdienste
-- Veraltete Protokolle
-- Virtualisierungsdienste
-
-### Autostart
-
-Das Modul `AutomaticStartupApps.cs` verwaltet die Autostart-Einträge.
-
-Aktuell bleibt nur:
-
-- SecurityHealthSystray
-
-Alle anderen Einträge werden deaktiviert.
-
-### Administratorrechte
-
-Das Modul `AskAdminPermissions.cs` überprüft beim Start, ob die Anwendung mit Administratorrechten ausgeführt wird.
-
-Falls dies nicht der Fall ist, startet sich die Anwendung automatisch mit einer UAC-Abfrage neu.
+- C#
+- .NET 10.0
+- WPF
+- System.Text.Json
+- System.Management
+- SSH.NET
+- PowerShell
+- Windows Registry
 
 ## Projektstruktur
 
 ```text
 WindowsDebloater/
-├── App.xaml
-├── App.xaml.cs
 ├── GUI/
 │   ├── MainWindow.xaml
-│   └── MainWindow.xaml.cs
-└── Core/
-    ├── Animationen.cs
-    ├── Ads.cs
-    ├── DataProtection.cs
-    ├── Services.cs
-    ├── AutomaticStartupApps.cs
-    └── AdminHelper.cs
-````
+│   └── Tabs/
+├── Core/
+├── App.xaml
+└── App.xaml.cs
+```
 
-## Oberfläche
+## Installation
 
-Die Benutzeroberfläche basiert auf WPF und ist in verschiedene Kategorien aufgeteilt:
+1. Repository klonen:
 
-* Animationen
-* Datenschutz
-* Werbung
-* Dienste
-* Autostart-Apps
+```bash
+git clone https://github.com/pantrimasi/Abschlussprojekt_maskus_DebloatingWindows.git
+```
 
-Alle Optionen werden über Checkboxen gesteuert.
+2. Projekt in Visual Studio öffnen.
 
-Mit dem Button **Anwenden** werden die ausgewählten Optimierungen ausgeführt.
+3. NuGet-Pakete wiederherstellen.
 
-## Technische Umsetzung
+4. Projekt im Release- oder Debug-Modus starten.
 
-WindowsDebloater verwendet hauptsächlich:
+> Die Anwendung benötigt Administratorrechte, da Änderungen an Diensten, der Registry und Windows-Einstellungen vorgenommen werden.
 
-* C#
-* WPF
-* .NET 10.0
-* Registry-Anpassungen
-* PowerShell-Befehle
+## Profile
 
-Registry-Änderungen werden über `reg add` ausgeführt.
+Die Anwendung enthält folgende Standardprofile:
 
-Windows-Dienste werden über PowerShell mit `Stop-Service` und `Set-Service` deaktiviert.
+- Work
+- Gaming
+- Minimum
+- Developer
+- Privacy
 
-## Geplante Erweiterungen
+Zusätzlich können eigene Profile erstellt, gespeichert, exportiert und auf anderen Geräten importiert werden.
 
-Folgende Funktionen sind für zukünftige Versionen geplant:
+## Backup-System
 
-* Profile (Gaming, Work, Privacy, Developer)
-* Eigene Profile speichern und laden
-* JSON-Import und Export
-* Benchmark-Bereich
-* Systemanalyse
-* Statusübersicht aller Optimierungen
-* Verbesserte Benutzeroberfläche
-* Weitere Optimierungsmodule
+Vor kritischen Änderungen können automatisch Windows-Wiederherstellungspunkte erstellt werden. Dadurch lassen sich Änderungen bei Bedarf wieder rückgängig machen.
+
+## Remote Deploy
+
+Über SSH können Profile auf entfernten Windows-Systemen angewendet werden. Eigene Profile werden automatisch in Befehle übersetzt und auf dem Zielsystem ausgeführt.
 
 ## Mitwirkende
 
-**Autor:** PantriMasi
+- PantriMasi
 
-## Lizenz
+## Projektstatus
 
-Dieses Projekt wurde als Ausbildungs- und Lernprojekt entwickelt.
+Dieses Projekt wurde im Rahmen eines Abschlussprojekts entwickelt und dient Lern- und Demonstrationszwecken.
+
+## Credits
+
+Entwickelt von **PantriMasi**.
+
+---
+
+# WindowsDebloater
+
+*A modern WPF application for debloating, optimizing and securing Windows 11.*
+
+## Overview
+
+WindowsDebloater is a graduation project developed with C# and .NET 10.0. The application provides a graphical interface that allows users to customize and optimize Windows 11 according to their needs. It includes app removal, privacy improvements, service management, profiles, backups and remote deployment.
+
+## Features
+
+- Remove preinstalled Windows applications
+- Privacy and telemetry configuration
+- Disable unnecessary Windows services
+- Built-in profiles (Work, Gaming, Minimum, Developer, Privacy)
+- Create, import and export custom profiles
+- Create and restore Windows restore points
+- Windows activation via KMS
+- Live CPU, RAM and process monitoring
+- Remote deployment via SSH
+- Modern WPF interface with custom window design
+
+## Technologies
+
+- C#
+- .NET 10.0
+- WPF
+- System.Text.Json
+- System.Management
+- SSH.NET
+- PowerShell
+- Windows Registry
+
+## Project Structure
+
+```text
+WindowsDebloater/
+├── GUI/
+│   ├── MainWindow.xaml
+│   └── Tabs/
+├── Core/
+├── App.xaml
+└── App.xaml.cs
+```
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/pantrimasi/Abschlussprojekt_maskus_DebloatingWindows.git
+```
+
+2. Open the project in Visual Studio.
+
+3. Restore the NuGet packages.
+
+4. Start the application in Release or Debug mode.
+
+> Administrator privileges are required because the application modifies services, the registry and system settings.
+
+## Profiles
+
+The application includes the following built-in profiles:
+
+- Work
+- Gaming
+- Minimum
+- Developer
+- Privacy
+
+Users can also create, save, export and import their own profiles.
+
+## Backup System
+
+Windows restore points can be created automatically before critical changes, allowing users to revert modifications if necessary.
+
+## Remote Deploy
+
+Profiles can be applied to remote systems via SSH. Custom profiles are automatically translated into commands and executed on the target machine.
+
+## Contributors
+
+- PantriMasi
+
+## Project Status
+
+This project was created as a graduation project and is intended for educational and demonstration purposes.
+
+## Credits
+
+Developed by **PantriMasi**.
