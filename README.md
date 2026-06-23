@@ -1,34 +1,73 @@
 # WindowsDebloater
 
-*Eine moderne WPF-Anwendung zum Debloaten, Optimieren und Absichern von Windows 11.*
+*Eine moderne WPF-Anwendung für Windows 11 zum Debloating, Optimieren, Datenschutz und Remote-Management von Windows-Systemen.*
 
 ## Übersicht
 
-WindowsDebloater ist ein Abschlussprojekt, das mit C# und .NET 10.0 entwickelt wurde. Die Anwendung bietet eine übersichtliche grafische Oberfläche, mit der Benutzer Windows 11 an ihre Bedürfnisse anpassen können. Dazu gehören das Entfernen vorinstallierter Apps, das Deaktivieren unnötiger Dienste, Datenschutz-Optimierungen, das Anwenden von Profilen sowie die Verwaltung von Backups und Remote-Deployments.
+WindowsDebloater ist ein Abschlussprojekt, das mit C# und WPF auf Basis von .NET 10 entwickelt wurde. Die Anwendung bietet eine benutzerfreundliche Oberfläche, um unnötige Windows-Komponenten zu entfernen, Datenschutzeinstellungen anzupassen, Dienste zu deaktivieren und eigene Optimierungsprofile zu erstellen.
+
+Zusätzlich enthält die Anwendung Funktionen für Remote-Deployments über SSH, die Erstellung von Wiederherstellungspunkten sowie die Verwaltung von benutzerdefinierten Profilen.
 
 ## Funktionen
 
-- Debloating von vorinstallierten Windows-Apps
-- Datenschutz- und Telemetrie-Einstellungen
-- Deaktivieren unnötiger Windows-Dienste
-- Vordefinierte Profile (Work, Gaming, Minimum, Developer, Privacy)
-- Eigene Profile erstellen, importieren und exportieren
-- Windows-Wiederherstellungspunkte erstellen und wiederherstellen
-- Windows-Aktivierung über KMS
-- Live-Anzeige von CPU-, RAM- und Prozessauslastung
-- Remote-Deployment über SSH
-- Modernes WPF-Design mit eigenem Fenstersystem
+### Systemoptimierung
+- Deaktivieren von Windows-Animationen
+- Optimierung für bessere Leistung
+- Deaktivieren unnötiger Dienste
+- Reduzierung von Hintergrundprozessen
 
-## Verwendete Technologien
+### Datenschutz
+- Deaktivieren von Telemetrie
+- Entfernen von Werbe-ID und personalisierten Vorschlägen
+- Abschalten von Diagnose- und Feedbackdiensten
+- Einschränkung von Standort- und Aktivitätsverfolgung
+
+### App-Entfernung
+- Entfernen von vorinstallierten Windows-Apps
+- Deinstallation von Xbox-Komponenten
+- Entfernen von Bing-Apps
+- Entfernen von Office- und Kommunikations-Apps
+- Entfernen von Widgets und weiteren optionalen Komponenten
+
+### Profile
+- Vordefinierte Profile:
+  - Work
+  - Gaming
+  - Minimum
+  - Developer
+  - Privacy
+- Eigene Profile erstellen
+- Profile importieren und exportieren
+- Profile als JSON speichern
+
+### Backup-System
+- Erstellen von Windows-Wiederherstellungspunkten
+- Wiederherstellen früherer Systemzustände
+- Lokale Speicherung der Backup-Metadaten
+
+### Remote Deploy
+- Verbindung über SSH
+- Profile auf entfernten Geräten anwenden
+- Live-Ausgabe aller ausgeführten Befehle
+- Unterstützung von eigenen und vordefinierten Profilen
+
+### Live-Systeminformationen
+- CPU-Auslastung
+- RAM-Auslastung
+- Anzahl laufender Prozesse
+- Anzahl installierter Programme
+
+## Technologien
 
 - C#
-- .NET 10.0
 - WPF
-- System.Text.Json
-- System.Management
-- SSH.NET
+- .NET 10
+- XAML
 - PowerShell
 - Windows Registry
+- JSON
+- SSH.NET
+- System.Management
 
 ## Projektstruktur
 
@@ -38,9 +77,26 @@ WindowsDebloater/
 │   ├── MainWindow.xaml
 │   └── Tabs/
 ├── Core/
-├── App.xaml
-└── App.xaml.cs
+│   ├── Animationen.cs
+│   ├── Ads.cs
+│   ├── DataProtection.cs
+│   ├── Services.cs
+│   ├── AppRemoval.cs
+│   ├── Developer.cs
+│   ├── ProfileManager.cs
+│   ├── WindowsActivation.cs
+│   ├── LiveUtilization.cs
+│   ├── AskAdminPermissions.cs
+│   └── Backup.cs
+└── App.xaml
 ```
+
+## Voraussetzungen
+
+- Windows 11
+- Administratorrechte
+- .NET 10 Runtime
+- Internetverbindung für bestimmte Funktionen
 
 ## Installation
 
@@ -50,136 +106,87 @@ WindowsDebloater/
 git clone https://github.com/pantrimasi/Abschlussprojekt_maskus_DebloatingWindows.git
 ```
 
-2. Projekt in Visual Studio öffnen.
-
-3. NuGet-Pakete wiederherstellen.
-
-4. Projekt im Release- oder Debug-Modus starten.
-
-> Die Anwendung benötigt Administratorrechte, da Änderungen an Diensten, der Registry und Windows-Einstellungen vorgenommen werden.
-
-## Profile
-
-Die Anwendung enthält folgende Standardprofile:
-
-- Work
-- Gaming
-- Minimum
-- Developer
-- Privacy
-
-Zusätzlich können eigene Profile erstellt, gespeichert, exportiert und auf anderen Geräten importiert werden.
-
-## Backup-System
-
-Vor kritischen Änderungen können automatisch Windows-Wiederherstellungspunkte erstellt werden. Dadurch lassen sich Änderungen bei Bedarf wieder rückgängig machen.
-
-## Remote Deploy
-
-Über SSH können Profile auf entfernten Windows-Systemen angewendet werden. Eigene Profile werden automatisch in Befehle übersetzt und auf dem Zielsystem ausgeführt.
-
-## Mitwirkende
-
-- PantriMasi
-
-## Projektstatus
-
-Dieses Projekt wurde im Rahmen eines Abschlussprojekts entwickelt und dient Lern- und Demonstrationszwecken.
-
-## Credits
-
-Entwickelt von **PantriMasi**.
-
----
-
-# WindowsDebloater
-
-*A modern WPF application for debloating, optimizing and securing Windows 11.*
-
-## Overview
-
-WindowsDebloater is a graduation project developed with C# and .NET 10.0. The application provides a graphical interface that allows users to customize and optimize Windows 11 according to their needs. It includes app removal, privacy improvements, service management, profiles, backups and remote deployment.
-
-## Features
-
-- Remove preinstalled Windows applications
-- Privacy and telemetry configuration
-- Disable unnecessary Windows services
-- Built-in profiles (Work, Gaming, Minimum, Developer, Privacy)
-- Create, import and export custom profiles
-- Create and restore Windows restore points
-- Windows activation via KMS
-- Live CPU, RAM and process monitoring
-- Remote deployment via SSH
-- Modern WPF interface with custom window design
-
-## Technologies
-
-- C#
-- .NET 10.0
-- WPF
-- System.Text.Json
-- System.Management
-- SSH.NET
-- PowerShell
-- Windows Registry
-
-## Project Structure
-
-```text
-WindowsDebloater/
-├── GUI/
-│   ├── MainWindow.xaml
-│   └── Tabs/
-├── Core/
-├── App.xaml
-└── App.xaml.cs
-```
-
-## Installation
-
-1. Clone the repository:
+2. Projekt öffnen:
 
 ```bash
-git clone https://github.com/pantrimasi/Abschlussprojekt_maskus_DebloatingWindows.git
+cd Abschlussprojekt_maskus_DebloatingWindows
 ```
 
-2. Open the project in Visual Studio.
+3. Lösung in Visual Studio öffnen.
 
-3. Restore the NuGet packages.
+4. Projekt kompilieren und starten.
 
-4. Start the application in Release or Debug mode.
+## Verwendung
 
-> Administrator privileges are required because the application modifies services, the registry and system settings.
+### Optimierungen anwenden
+1. Gewünschten Tab auswählen.
+2. Einstellungen aktivieren.
+3. Auf **Anwenden** klicken.
 
-## Profiles
+### Profil verwenden
+1. Zum Tab **Profiles** wechseln.
+2. Profil auswählen.
+3. Anwenden bestätigen.
 
-The application includes the following built-in profiles:
+### Eigenes Profil erstellen
+1. Auf **Profil erstellen** klicken.
+2. Einstellungen auswählen.
+3. Profil speichern.
 
-- Work
-- Gaming
-- Minimum
-- Developer
-- Privacy
+### Remote Deploy
+1. IP-Adresse und Zugangsdaten eingeben.
+2. Profil auswählen.
+3. Verbindung herstellen.
+4. Profil ausführen.
 
-Users can also create, save, export and import their own profiles.
+## Architektur
 
-## Backup System
+Die Anwendung verwendet eine klassische Code-Behind-Architektur ohne MVVM.
 
-Windows restore points can be created automatically before critical changes, allowing users to revert modifications if necessary.
+Die Logik ist in drei Bereiche getrennt:
 
-## Remote Deploy
+- `WindowsDebloater.Core`
+- `WindowsDebloater.GUI`
+- `WindowsDebloater.GUI.Tabs`
 
-Profiles can be applied to remote systems via SSH. Custom profiles are automatically translated into commands and executed on the target machine.
+Langlaufende Prozesse werden mit `async` und `await` ausgeführt, damit die Benutzeroberfläche jederzeit reaktionsfähig bleibt.
 
-## Contributors
+## Datenspeicherung
 
-- PantriMasi
+### Profile
+```text
+%AppData%\WindowsDebloater\profiles\
+```
 
-## Project Status
+### Backups
+```text
+%AppData%\WindowsDebloater\backups.json
+```
 
-This project was created as a graduation project and is intended for educational and demonstration purposes.
+## Screenshots
 
-## Credits
+Füge hier Screenshots der Anwendung ein.
 
-Developed by **PantriMasi**.
+```md
+![MainWindow](images/mainwindow.png)
+![Profiles](images/profiles.png)
+![RemoteDeploy](images/remotedeploy.png)
+```
+
+## Mitwirken
+
+Verbesserungsvorschläge, Bug-Reports und Pull Requests sind willkommen.
+
+## Lizenz
+
+Dieses Projekt wurde als Abschlussprojekt erstellt und besitzt derzeit keine offizielle Lizenz.
+
+## Autor
+
+**PantriMasi**
+
+GitHub: https://github.com/pantrimasi
+
+## Repository
+
+https://github.com/pantrimasi/Abschlussprojekt_maskus_DebloatingWindows
