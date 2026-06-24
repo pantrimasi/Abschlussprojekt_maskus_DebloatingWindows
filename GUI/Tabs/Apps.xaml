@@ -14,7 +14,7 @@
             <!-- AI, Gaming, Communication -->
             <Border Background="#1A1A1A" CornerRadius="10" Margin="20" Padding="20">
                 <StackPanel>
-                    <TextBlock Text="Services" Foreground="#BB86FC" FontSize="24" Margin="0,0,0,10" />
+                    <TextBlock Text="Verschiedene Apps" Foreground="#BB86FC" FontSize="24" Margin="0,0,0,10" />
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -75,7 +75,7 @@
             <!-- Card 2: Office + Bing Services -->
             <Border Background="#1A1A1A" CornerRadius="10" Margin="20" Padding="20">
                 <StackPanel>
-                    <TextBlock Text="Services" Foreground="#BB86FC" FontSize="24" Margin="0,0,0,10" />
+                    <TextBlock Text="Office Apps" Foreground="#BB86FC" FontSize="24" Margin="0,0,0,10" />
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -182,7 +182,7 @@
             <!-- Card 3: 3D, Widgets, Special, System, Media -->
             <Border Background="#1A1A1A" CornerRadius="10" Margin="20" Padding="20">
                 <StackPanel>
-                    <TextBlock Text="Services" Foreground="#BB86FC" FontSize="24" Margin="0,0,0,10" />
+                    <TextBlock Text="unnötige Apps" Foreground="#BB86FC" FontSize="24" Margin="0,0,0,10" />
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
