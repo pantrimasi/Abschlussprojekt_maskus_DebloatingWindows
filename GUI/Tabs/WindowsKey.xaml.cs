@@ -1,4 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿/*
+ * Author: Masato Kuster
+ * Date: 24.06.2026
+ * Version: 1.0.0
+ * Project: Windows Debloater Tool
+ * Description: Core application logic for a Windows optimization tool that removes unnecessary system components and improves performance.
+ */
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
