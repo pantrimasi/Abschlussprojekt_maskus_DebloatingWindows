@@ -3,7 +3,7 @@
  * Date: 24.06.2026
  * Version: 1.0.0
  * Project: Windows Debloater Tool
- * Description: Core application logic for a Windows optimization tool that removes unnecessary system components and improves performance.
+ * Description: Logic for navigation, live stats, window controls, backup overlay and global apply button.
  */
 using System.Windows;
 using System.Windows.Controls;
@@ -231,6 +231,5 @@ private void Maximize_Click(object sender, RoutedEventArgs e)
         {
             BackupOverlay.Visibility = Visibility.Collapsed;
         }
-        s
     }
 }

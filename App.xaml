@@ -3,7 +3,7 @@
     Date: 24.06.2026
     Version: 1.0.0
     Project: Windows Debloater Tool
-    Description: UI layout definition for the Windows optimization tool. Contains controls, layouts and bindings for system cleanup and performance features.
+    Description: Global styles for UI components including buttons, checkboxes, comboboxes and scrollbars.
 -->
 <Application x:Class="WindowsDebloater.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:WindowsDebloater"

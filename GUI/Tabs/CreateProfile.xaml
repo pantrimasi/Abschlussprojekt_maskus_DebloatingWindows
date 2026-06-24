@@ -3,7 +3,7 @@
     Date: 24.06.2026
     Version: 1.0.0
     Project: Windows Debloater Tool
-    Description: UI layout definition for the Windows optimization tool. Contains controls, layouts and bindings for system cleanup and performance features.
+    Description: UserControl with all checkboxes from all tabs for creating a custom profile.
 -->
 <UserControl x:Class="WindowsDebloater.GUI.Tabs.CreateProfile"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

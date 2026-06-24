@@ -3,7 +3,7 @@
  * Date: 24.06.2026
  * Version: 1.0.0
  * Project: Windows Debloater Tool
- * Description: Core application logic for a Windows optimization tool that removes unnecessary system components and improves performance.
+ * Description: Removes built-in Windows apps via PowerShell grouped by category.
  */
 namespace WindowsDebloater.Core
 {

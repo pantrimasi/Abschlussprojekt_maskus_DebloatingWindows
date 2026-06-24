@@ -3,7 +3,7 @@
  * Date: 24.06.2026
  * Version: 1.0.0
  * Project: Windows Debloater Tool
- * Description: Core application logic for a Windows optimization tool that removes unnecessary system components and improves performance.
+ * Description: Checks for admin rights and restarts the application with elevated privileges if needed.
  */
 using System.Security.Principal;
 using System.Windows;

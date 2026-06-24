@@ -3,7 +3,7 @@
  * Date: 24.06.2026
  * Version: 1.0.0
  * Project: Windows Debloater Tool
- * Description: Core application logic for a Windows optimization tool that removes unnecessary system components and improves performance.
+ * Description: Handles activation, status check and creates a restore point before activating.
  */
 using System.Threading.Tasks;
 using System.Windows;

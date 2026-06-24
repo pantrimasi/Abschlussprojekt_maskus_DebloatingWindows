@@ -3,7 +3,7 @@
     Date: 24.06.2026
     Version: 1.0.0
     Project: Windows Debloater Tool
-    Description: UI layout definition for the Windows optimization tool. Contains controls, layouts and bindings for system cleanup and performance features.
+    Description: Tab layout for SSH remote deployment with connection fields, profile selection and output display.
 -->
 <UserControl x:Class="WindowsDebloater.GUI.Tabs.RemoteDeploy"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
