@@ -23,8 +23,7 @@ namespace WindowsDebloater.GUI.Tabs
             await Task.Run(() => WindowsDebloater.Core.Backup.CreateRestorePoint());
 
             TxtStatus.Text = "Aktivierung läuft...";
-            await Task.Run(() =>
-            {
+            await Task.Run(() => {
                 if (edition == "Windows 11 Pro") WindowsDebloater.Core.WindowsActivation.ActivatePro();
                 if (edition == "Windows 11 Home") WindowsDebloater.Core.WindowsActivation.ActivateHome();
                 if (edition == "Windows 11 Enterprise") WindowsDebloater.Core.WindowsActivation.ActivateEnterprise();

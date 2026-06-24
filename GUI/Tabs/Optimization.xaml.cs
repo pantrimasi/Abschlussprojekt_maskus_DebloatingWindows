@@ -6,7 +6,7 @@ namespace WindowsDebloater.GUI.Tabs
     public partial class Optimization : UserControl
     {
         public Optimization() => InitializeComponent();
-
+        
         private void BtnAnwenden_Click(object sender, RoutedEventArgs e)
         {
             bool triggerRestart = false;

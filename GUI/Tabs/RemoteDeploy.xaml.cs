@@ -82,7 +82,8 @@ namespace WindowsDebloater.GUI.Tabs
                 foreach (string cmd in commands)
                 {
                     // run as admin
-                    string elevated = $"powershell -Command \"Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command {cmd.Replace("\"", "\\\"")}' -Verb RunAs -Wait\"";
+                    string elevated = $"powershell -Command \"Start-Process powershell -ArgumentList " +
+                    $"'-NoProfile -ExecutionPolicy Bypass -Command {cmd.Replace("\"", "\\\"")}' -Verb RunAs -Wait\"";
                     var result = _client.RunCommand(elevated);
                     Dispatcher.Invoke(() =>
                     {

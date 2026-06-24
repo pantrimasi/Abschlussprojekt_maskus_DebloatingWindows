@@ -14,30 +14,26 @@ namespace WindowsDebloater.GUI
         {
             BtnApplyAll.IsEnabled = false;
 
-            // restore point
+            // read states on UI thread
+            bool menuDelay = _tabOptimization.ChkMenuDelay.IsChecked == true;
+            bool telemetry = _tabDataProtection.ChkTelemetry.IsChecked == true;
+            bool copilot = _tabApps.ChkCopilot.IsChecked == true;
+            // alle anderen gleich darunter
+
             await Task.Run(() => WindowsDebloater.Core.Backup.CreateRestorePoint());
 
-            // apply all checked
             await Task.Run(() =>
             {
-                // Optimierungen
-                if (_tabOptimization.ChkMenuDelay.IsChecked == true) WindowsDebloater.Core.Animationen.DisableMenuShowDelay();
-                // alle anderen Checkboxen gleich darunter
-
-                // DataProtection
-                if (_tabDataProtection.ChkTelemetry.IsChecked == true) WindowsDebloater.Core.DataProtection.DisableTelemetry();
-                // alle anderen Checkboxen gleich darunter
-
-                // Apps
-                if (_tabApps.ChkCopilot.IsChecked == true) WindowsDebloater.Core.AppRemoval.RemoveCopilot();
-                // alle anderen Checkboxen gleich darunter
+                if (menuDelay) WindowsDebloater.Core.Animationen.DisableMenuShowDelay();
+                if (telemetry) WindowsDebloater.Core.DataProtection.DisableTelemetry();
+                if (copilot) WindowsDebloater.Core.AppRemoval.RemoveCopilot();
+                // alle anderen gleich darunter
 
                 WindowsDebloater.Core.Animationen.RestartExplorer();
             });
 
             BtnApplyAll.IsEnabled = true;
         }
-
 
 
         // tab instances
@@ -228,6 +224,6 @@ private void Maximize_Click(object sender, RoutedEventArgs e)
         {
             BackupOverlay.Visibility = Visibility.Collapsed;
         }
-
+        s
     }
 }

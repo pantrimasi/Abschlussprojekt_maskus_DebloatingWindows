@@ -200,7 +200,8 @@ namespace WindowsDebloater.GUI.Tabs
             string name = TxtProfileName.Text.Trim();
             if (string.IsNullOrEmpty(name) || name == "Profilname...") return;
             var checkboxes = new System.Collections.Generic.Dictionary<string, bool>
-    {
+        {
+
         // Animationen
         { "ChkMenuDelay", ChkMenuDelay.IsChecked == true },
         { "ChkTaskbarAnim", ChkTaskbarAnim.IsChecked == true },

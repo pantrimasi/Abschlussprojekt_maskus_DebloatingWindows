@@ -35,5 +35,6 @@ namespace WindowsDebloater.Core
 
         // running processes
         public static Process[] GetProcesses() => Process.GetProcesses();
+
         }
     }

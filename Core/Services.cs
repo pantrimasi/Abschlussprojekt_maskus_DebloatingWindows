@@ -13,7 +13,8 @@
             });
         }
 
-        private static void DisableService(string name) => RunPowerShellCommand($"Stop-Service -Name '{name}' -Force -ErrorAction SilentlyContinue; Set-Service -Name '{name}' -StartupType Disabled -ErrorAction SilentlyContinue");
+        private static void DisableService(string name) => RunPowerShellCommand($"Stop-Service -Name '{name}'" +
+            $" -Force -ErrorAction SilentlyContinue; Set-Service -Name '{name}' -StartupType Disabled -ErrorAction SilentlyContinue");
 
         // ------------------------------------------------------------------------- DataProtection & Telemetry
         // Telemetry
